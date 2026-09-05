@@ -1,746 +1,449 @@
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>H&H İletişim ve Destek Portalı</title>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&H İletişim | Rəsmi Veb-Sayt</title>
+    <style>
+        /* Ümumi Stil və Sıfırlama */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  body {
-    background-color: #080b10;
-    color: #e2e8f0;
-    overflow-x: hidden;
-    line-height: 1.6;
-  }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
-  /* --- HEADER & NAV --- */
-  header {
-    background-color: rgba(8, 11, 16, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-  }
+        /* Yuxarı Dil Çubuğu */
+        .top-bar {
+            background-color: #111;
+            color: #fff;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 13px;
+        }
 
-  .brand-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
+        /* Naviqasiya Menyusu */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-  .brand-logo {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: #ffffff;
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 24px;
-    font-style: italic;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-  }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
 
-  .brand-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-  }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+            text-decoration: none;
+        }
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
 
-  .lang-select {
-    background-color: #131924;
-    color: #cbd5e1;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    outline: none;
-    cursor: pointer;
-  }
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
 
-  .btn-auth {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-  }
+        .nav-links a:hover {
+            color: #0066cc;
+        }
 
-  .btn-auth:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+        /* Əsas Hero Bölməsi */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
 
-  /* --- HERO SECTION --- */
-  .hero {
-    position: relative;
-    padding: 100px 40px 80px 40px;
-    background: linear-gradient(180deg, rgba(8, 11, 16, 0.5) 0%, rgba(8, 11, 16, 1) 100%),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
 
-  .hero-tag {
-    font-size: 12px;
-    color: #60a5fa;
-    background: rgba(37, 99, 235, 0.15);
-    border: 1px solid rgba(37, 99, 235, 0.3);
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-  }
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
 
-  .hero-title {
-    font-size: 48px;
-    font-weight: 800;
-    max-width: 900px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
+        .btn {
+            background: #ff6600;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
 
-  .hero-title span {
-    color: #93c5fd;
-    font-style: italic;
-    font-weight: 300;
-  }
+        .btn:hover {
+            background: #e55c00;
+        }
 
-  .hero-desc {
-    color: #94a3b8;
-    font-size: 16px;
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
+        /* Dağ Fotosu və Ağasəf Aİ Bölməsi */
+        .mountain-banner {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    width: 100%;
-    max-width: 1000px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 40px;
-    margin-top: 20px;
-  }
+        .mountain-banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
 
-  .stat-item h3 {
-    font-size: 36px;
-    font-weight: 800;
-    color: #ffffff;
-  }
+        .mountain-banner p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
 
-  .stat-item p {
-    font-size: 13px;
-    color: #64748b;
-  }
+        .ai-btn {
+            background: #00c853;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
 
-  /* --- BRAND LOGOS --- */
-  .brands-section {
-    background-color: #04060a;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
+        .ai-btn:hover {
+            background: #00b0ff;
+            transform: scale(1.05);
+        }
 
-  .brands-title {
-    text-align: center;
-    font-size: 12px;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-  }
+        /* Xidmətlər Bölməsi */
+        .services {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: #ffffff;
+        }
 
-  .brands-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+        .services h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #222;
+        }
 
-  .brand-card {
-    background-color: #0d121d;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 800;
-    font-size: 16px;
-    color: #475569;
-    letter-spacing: 1.5px;
-  }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-  /* --- KNOWLEDGE BASE / ARTICLES --- */
-  .articles-section {
-    padding: 80px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+        .service-card {
+            background: #f9f9f9;
+            padding: 35px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
 
-  .section-header h2 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ffffff;
-  }
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
 
-  .section-header p {
-    color: #64748b;
-    font-size: 15px;
-  }
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 14px;
+        }
 
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
+        /* Çerez Banneri */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+        }
 
-  .article-card {
-    background: #0d121d;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 25px;
-    transition: transform 0.2s, border-color 0.2s;
-  }
+        #cookie-banner a {
+            color: #4da6ff;
+            text-decoration: underline;
+        }
 
-  .article-card:hover {
-    transform: translateY(-5px);
-    border-color: #2563eb;
-  }
+        #cookie-banner button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
 
-  .article-badge {
-    font-size: 11px;
-    color: #3b82f6;
-    background: rgba(59, 130, 246, 0.1);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 12px;
-  }
+        /* AI Chatbot Widget */
+        #ai-chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+        }
 
-  .article-card h3 {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 10px;
-  }
+        #chat-toggle-btn {
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 22px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 15px;
+        }
 
-  .article-card p {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-bottom: 15px;
-  }
+        #chat-window {
+            display: none;
+            width: 320px;
+            height: 420px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
 
-  .article-link {
-    color: #60a5fa;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-  }
+        .chat-header {
+            background: #0066cc;
+            color: white;
+            padding: 12px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  /* --- FOOTER --- */
-  footer {
-    background-color: #020305;
-    padding: 60px 40px 30px 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
+        .chat-messages {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            font-size: 13px;
+            background: #f9f9f9;
+        }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-  }
+        .chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            background: #fff;
+        }
 
-  .footer-col h5 {
-    color: #ffffff;
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
+        .chat-input-area input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 4px;
+            outline: none;
+        }
 
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 12px;
-  }
-
-  .footer-col ul li a {
-    color: #64748b;
-    text-decoration: none;
-    font-size: 13px;
-    transition: 0.2s;
-  }
-
-  .footer-col ul li a:hover {
-    color: #ffffff;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    color: #475569;
-    font-size: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 25px;
-  }
-
-  /* --- FLOATING CHAT BOT --- */
-  .chat-widget-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
-    z-index: 2000;
-    font-size: 24px;
-  }
-
-  .chat-box {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 360px;
-    height: 500px;
-    background: #0d121d;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 2000;
-  }
-
-  .chat-header {
-    background: #1e293b;
-    padding: 15px;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .chat-messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 13px;
-  }
-
-  .msg {
-    padding: 10px 12px;
-    border-radius: 8px;
-    max-width: 80%;
-  }
-
-  .msg.bot {
-    background: #1e293b;
-    color: #e2e8f0;
-    align-self: flex-start;
-  }
-
-  .msg.user {
-    background: #2563eb;
-    color: white;
-    align-self: flex-end;
-  }
-
-  .chat-input-area {
-    padding: 10px;
-    display: flex;
-    gap: 8px;
-    background: #080b10;
-  }
-
-  .chat-input-area input {
-    flex: 1;
-    background: #1e293b;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    color: white;
-    outline: none;
-    font-size: 12px;
-  }
-
-  .chat-input-area button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 0 15px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  /* --- COOKIE BAR (OKLE / ACCEPT) --- */
-  .cookie-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #020305;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 3000;
-    font-size: 12px;
-    color: #94a3b8;
-  }
-
-  .cookie-btn {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-
-  /* --- MODAL (SIGN IN / LOGIN) --- */
-  .modal-overlay {
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 4000;
-  }
-
-  .modal-card {
-    background: #0d121d;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    border-radius: 12px;
-    width: 350px;
-  }
-
-  .modal-card h3 {
-    margin-bottom: 20px;
-    color: white;
-  }
-
-  .modal-card input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    background: #1e293b;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 6px;
-    color: white;
-    outline: none;
-  }
-
-  .modal-card button {
-    width: 100%;
-    padding: 10px;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    .stats-grid, .articles-grid, .footer-grid {
-      grid-template-columns: 1fr;
-    }
-    .hero-title { font-size: 30px; }
-  }
-</style>
+        .chat-input-area button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            margin-left: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <a href="#" class="brand-container">
-      <div class="brand-logo">h</div>
-      <div class="brand-title">H&H iletişim ve destek portalı</div>
-    </a>
-    <div class="nav-right">
-      <select class="lang-select" id="langSelect" onchange="changeLanguage()">
-        <option value="az">AZ</option>
-        <option value="tr">TR</option>
-        <option value="en">EN</option>
-      </select>
-      <button class="btn-auth" onclick="openModal()" id="loginBtn">Giriş Yap / Sign In</button>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-tag">H&H İletişim ve Destek Portalı | Enterprise Platform</div>
-    <h1 class="hero-title" id="heroTitle">Müasir Oyunlar və Sistemlər üçün <span>Aİ Dəstək Portalı</span></h1>
-    <p class="hero-desc" id="heroDesc">
-      H&H iletişim ve destek portalı texnologiya, süni intellekt və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinizə anında köməklik göstərir.
-    </p>
-
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3>500+</h3>
-        <p>Partnyor Studio</p>
-      </div>
-      <div class="stat-item">
-        <h3>2Bn+</h3>
-        <p>Aktiv Qurğu</p>
-      </div>
-      <div class="stat-item">
-        <h3>70%+</h3>
-        <p>Aİ Avtomatlaşdırma</p>
-      </div>
-      <div class="stat-item">
-        <h3>24/7</h3>
-        <p>Fasiləsiz Dəstək</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brand Logos -->
-  <section class="brands-section">
-    <div class="brands-title">BİZƏ ETİBAR EDƏN NƏHƏNG MARKALAR</div>
-    <div class="brands-grid">
-      <div class="brand-card">ZYNGA</div>
-      <div class="brand-card">SYBO</div>
-      <div class="brand-card">ROVIO</div>
-      <div class="brand-card">EA GAMES</div>
-      <div class="brand-card">UBISOFT</div>
-      <div class="brand-card">KRAFTON</div>
-    </div>
-  </section>
-
-  <!-- Knowledge Base Articles -->
-  <section class="articles-section">
-    <div class="section-header">
-      <h2 id="artHeader">Tez-tez Verilən Suallar və Məqalələr</h2>
-      <p>Probleminizin həllini tapmaq üçün aşağıdakı təlimatlarla tanış olun</p>
+    <!-- Yuxarı Dil Paneli (Google Translate) -->
+    <div class="top-bar">
+        <div id="google_translate_element"></div>
     </div>
 
-    <div class="articles-grid">
-      <div class="article-card">
-        <span class="article-badge">HESAB VƏ TƏHLÜKƏSİZLİK</span>
-        <h3>Hesabınızı Necə Qorumalı?</h3>
-        <p>İki mərhələli doğrulama və H&H ID təhlükəsizlik parametrlərinin aktivləşdirilməsi qaydaları.</p>
-        <a href="#" class="article-link">Ətraflı oxu &rarr;</a>
-      </div>
+    <!-- Naviqasiya -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">H&H İletişim</a>
+            <ul class="nav-links">
+                <li><a href="#">Ana Səhifə</a></li>
+                <li><a href="#services">Xidmətlər</a></li>
+                <li><a href="#mountain-section">Ağasəf Aİ</a></li>
+                <li><a href="#contact">Əlaqə</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <div class="article-card">
-        <span class="article-badge">ÖDƏNİŞLƏR</span>
-        <h3>Uğursuz Tranzaksiyalar</h3>
-        <p>Balans artırma zamanı yaranan gecikmələr və geri ödəniş tələblərinin icrası.</p>
-        <a href="#" class="article-link">Ətraflı oxu &rarr;</a>
-      </div>
+    <!-- Hero Bölməsi -->
+    <section class="hero">
+        <h1>Geniş Çaplı Rabitə və İT Həlləri</h1>
+        <p>H&H İletişim olaraq müasir texnologiyalar və peşəkar komandamızla biznesinizi gələcəyə daşıyırıq.</p>
+        <a href="#services" class="btn">Xidmətlərimizə Bax</a>
+    </section>
 
-      <div class="article-card">
-        <span class="article-badge">TEXNİKİ DƏSTƏK</span>
-        <h3>Aİ Çatbotu Cavab Vermir?</h3>
-        <p>Kukilərin təmizlənməsi, brauzer yenilənməsi və alternativ əlaqə kanalları.</p>
-        <a href="#" class="article-link">Ətraflı oxu &rarr;</a>
-      </div>
+    <!-- Dağ Fotosu və Ağasəf Aİ Bölməsi -->
+    <section id="mountain-section" class="mountain-banner">
+        <h2>Ağasəf Aİ Xidmət Mərkəzi</h2>
+        <p>Süni intellekt dəstəkli yeni nəsil texnologiyalarımızla tanış olun və imkanlarımızı kəşf edin.</p>
+        <a href="https://sites.google.com/view/ai707/ev" target="_blank" class="ai-btn">🤖 Ağasəf Aİ Keçid Et</a>
+    </section>
+
+    <!-- Xidmətlər -->
+    <section id="services" class="services">
+        <h2>Xidmətlərimiz</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Korporativ Şəbəkələr</h3>
+                <p>Şirkətiniz üçün təhlükəsiz, sürətli və kəsintisiz daxili/xarici rabitə xətlərinin qurulması.</p>
+            </div>
+            <div class="service-card">
+                <h3>İT Dəstək və Bulud</h3>
+                <p>7/24 texniki monitorinq, server idarəçiliyi və bulud əsaslı məlumatların qorunması sistemləri.</p>
+            </div>
+            <div class="service-card">
+                <h3>Rəqəmsal Transformasiya</h3>
+                <p>Biznes proseslərinizin avtomatlaşdırılması və müasir kommunikasiya vasitələri ilə inteqrasiyası.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 H&H İletişim. Bütün hüquqlar qorunur. | <a href="#" style="color:#4da6ff;">Məxfilik Siyasəti</a></p>
+    </footer>
+
+    <!-- Çerez Banneri -->
+    <div id="cookie-banner">
+        <div>
+            H&H İletişim təcrübənizi yaxşılaşdırmaq üçün çerezlərdən istifadə edir. Saytdan istifadə etməklə razılaşmış olursunuz.
+        </div>
+        <button onclick="acceptCookies()">Qəbul Et</button>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h5>Məhsullar</h5>
-        <ul>
-          <li><a href="#">Aİ Çatbot</a></li>
-          <li><a href="#">H&H ID Inteqrasiyası</a></li>
-          <li><a href="#">Təhlükəsizlik Paneli</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Şirkət</h5>
-        <ul>
-          <li><a href="#">Haqqımızda</a></li>
-          <li><a href="#">Karyera</a></li>
-          <li><a href="#">Partnyorluq</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Resurslar</h5>
-        <ul>
-          <li><a href="#">Məqalələr</a></li>
-          <li><a href="#">Sənədləşmə</a></li>
-          <li><a href="#">API Girişi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>H&H İletişim</h5>
-        <ul>
-          <li><a href="#">Dəstək Mərkəzi</a></li>
-          <li><a href="#">Gizlilik Siyasəti</a></li>
-          <li><a href="#">Şərtlər və Qaydalar</a></li>
-        </ul>
-      </div>
+    <!-- AI Chatbot Widget -->
+    <div id="ai-chat-widget">
+        <button id="chat-toggle-btn" onclick="toggleChat()">💬 H&H AI Dəstək</button>
+        <div id="chat-window">
+            <div class="chat-header">
+                <span>H&H İletişim Köməkçisi</span>
+                <span style="cursor: pointer;" onclick="toggleChat()">✕</span>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div style="background: #e1f0ff; padding: 8px; border-radius: 6px; margin-bottom: 8px;">Salam! H&H İletişim-ə xoş gəlmisiniz. Sizə necə kömək edə bilərəm?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Mesajınızı yazın..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Göndər</button>
+            </div>
+        </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 H&H İletişim ve Destek Portalı. Bütün hüquqlar qorunur. Powered by HelpShift Technology.
-    </div>
-  </footer>
 
-  <!-- Floating Chatbot Widget -->
-  <div class="chat-widget-btn" onclick="toggleChat()">💬</div>
+    <!-- Skriptlər (Google Translate, Cookie və Chatbot Məntiqi) -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'az',
+                includedLanguages: 'az,en,ru,tr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <div class="chat-box" id="chatBox">
-    <div class="chat-header">
-      <span>H&H Aİ Dəstək</span>
-      <span style="cursor:pointer" onclick="toggleChat()">✕</span>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg bot">Salam! H&H Dəstək Aİ xidmətinə xoş gəldiniz. Sizə necə kömək edə bilərəm?</div>
-    </div>
-    <div class="chat-input-area">
-      <input type="text" id="chatInput" placeholder="Mesajınızı yazın...">
-      <button onclick="sendMessage()">Göndər</button>
-    </div>
-  </div>
+    <script>
+        // Çerez funksionallığı
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+        if(localStorage.getItem('cookiesAccepted') === 'true') {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
 
-  <!-- Cookie Banner -->
-  <div class="cookie-bar" id="cookieBar">
-    <span>Bu sayt təcrübənizi yaxşılaşdırmaq üçün çerezlərdən (cookies) istifadə edir. Saytdan istifadə edərək bunu qəbul etmiş olursunuz.</span>
-    <div>
-      <button class="cookie-btn" onclick="acceptCookies()">Qəbul et (Oklə)</button>
-    </div>
-  </div>
+        // Chatbot funksionallığı
+        function toggleChat() {
+            var win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+        }
 
-  <!-- Login Modal -->
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal-card">
-      <h3 id="modalTitle">Hesaba Giriş</h3>
-      <input type="email" placeholder="E-poçt ünvanı">
-      <input type="password" placeholder="Şifrə">
-      <button onclick="closeModal()">Giriş Yap</button>
-      <p style="text-align: center; margin-top: 15px; font-size: 12px; color: #64748b; cursor: pointer;" onclick="closeModal()">Bağla</p>
-    </div>
-  </div>
+        function sendMessage() {
+            var input = document.getElementById('chat-input');
+            var text = input.value.trim();
+            if(!text) return;
+            
+            var messages = document.getElementById('chat-messages');
+            messages.innerHTML += '<div style="background: #daf1bc; padding: 8px; border-radius: 6px; margin-bottom: 8px; text-align: right;">' + text + '</div>';
+            input.value = '';
+            
+            setTimeout(function() {
+                messages.innerHTML += '<div style="background: #e1f0ff; padding: 8px; border-radius: 6px; margin-bottom: 8px;">Sorğunuz qəbul olundu. Əməkdaşlarımız tezliklə sizinlə əlaqə saxlayacaq!</div>';
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+        }
 
-  <!-- JS Scripts -->
-  <script>
-    /* Chatbot logic */
-    function toggleChat() {
-      const chat = document.getElementById('chatBox');
-      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    function sendMessage() {
-      const input = document.getElementById('chatInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const chatMessages = document.getElementById('chatMessages');
-      
-      // User message
-      const userMsg = document.createElement('div');
-      userMsg.className = 'msg user';
-      userMsg.innerText = text;
-      chatMessages.appendChild(userMsg);
-
-      input.value = '';
-
-      // AI response simulation
-      setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.className = 'msg bot';
-        botMsg.innerText = "Müraciətiniz qeydə alındı. H&H dəstək komandası tezliklə sizinlə əlaqə saxlayacaq.";
-        chatMessages.appendChild(botMsg);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 800);
-
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    /* Cookie acceptance */
-    function acceptCookies() {
-      document.getElementById('cookieBar').style.display = 'none';
-    }
-
-    /* Modal logic */
-    function openModal() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('loginModal').style.display = 'none';
-    }
-
-    /* Language Switcher */
-    function changeLanguage() {
-      const lang = document.getElementById('langSelect').value;
-      const heroTitle = document.getElementById('heroTitle');
-      const heroDesc = document.getElementById('heroDesc');
-      const loginBtn = document.getElementById('loginBtn');
-
-      if (lang === 'tr') {
-        heroTitle.innerHTML = 'Modern Oyunlar ve Sistemler için <span>Yapay Zeka Destek Portalı</span>';
-        heroDesc.innerText = 'H&H iletişim ve destek portalı teknoloji, yapay zeka ve canlı destek hizmetlerini bir araya getirerek anında yardım sağlar.';
-        loginBtn.innerText = 'Giriş Yap';
-      } else if (lang === 'en') {
-        heroTitle.innerHTML = 'AI-Powered Support Portal for <span>Modern Gaming & Systems</span>';
-        heroDesc.innerText = 'H&H communication and support portal combines technology, AI, and human services to deliver real-time assistance.';
-        loginBtn.innerText = 'Sign In';
-      } else {
-        heroTitle.innerHTML = 'Müasir Oyunlar və Sistemlər üçün <span>Aİ Dəstək Portalı</span>';
-        heroDesc.innerText = 'H&H iletişim ve destek portalı texnologiya, süni intellekt və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinizə anında köməklik göstərir.';
-        loginBtn.innerText = 'Giriş Yap / Sign In';
-      }
-    }
-  </script>
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
 </body>
-  </html>
+</html>
+
