@@ -40,6 +40,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .auth-btn {
             background-color: #2563eb;
@@ -54,6 +55,47 @@
         .auth-btn:hover {
             background-color: #1d4ed8;
         }
+        
+        /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONU */
+        .app-promo-banner {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #3b82f6;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .app-promo-logo {
+            background-color: #ffffff;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .download-btn {
+            background-color: #10b981;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -75,7 +117,6 @@
             line-height: 1.6;
             font-size: 16px;
         }
-        /* PARLAQ RƏNGBƏRƏNG CREATE NEW PROJECT DÜYMƏSİ */
         .create-project-btn {
             display: inline-block;
             margin-top: 25px;
@@ -163,6 +204,60 @@
             font-size: 14px;
             letter-spacing: 0.5px;
         }
+        .services-section {
+            max-width: 1100px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .agasef-ai-card {
+            display: block;
+            background: linear-gradient(135deg, #111827, #1f2937);
+            border: 2px solid #2563eb;
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 380px;
+            text-decoration: none;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .agasef-ai-card:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+            box-shadow: 0 12px 30px rgba(96, 165, 250, 0.5);
+        }
+        .agasef-ai-logo-box {
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .agasef-ai-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: #60a5fa;
+        }
+        .agasef-ai-card p {
+            margin: 0;
+            color: #9ca3af;
+            font-size: 14px;
+            line-height: 1.5;
+        }
         .articles-section {
             max-width: 1100px;
             margin: 40px auto;
@@ -233,13 +328,40 @@
             color: #93c5fd;
             text-decoration: underline;
         }
+        .domain-notice {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid #2563eb;
+            color: #93c5fd;
+            padding: 12px 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-apk-icon {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .footer-apk-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .footer-apk-icon img:hover {
+            transform: scale(1.1);
+        }
         .copyright {
             color: #6b7280;
             font-size: 12px;
             margin-top: 10px;
         }
-
-        /* LOGIN MODAL STİLİ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -274,7 +396,6 @@
             font-size: 13px;
             margin-top: 15px;
         }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 26px;
@@ -289,10 +410,7 @@
         <div class="modal-box">
             <h3>H&H Serverinə Giriş</h3>
             <p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Davam etmək üçün həqiqi Google hesabınızla daxil olun:</p>
-            
-            <!-- Google Giriş Düyməsi -->
             <div id="g_id_signin" style="display: flex; justify-content: center; margin-bottom: 15px;"></div>
-
             <br>
             <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
         </div>
@@ -305,17 +423,22 @@
         </div>
         <div class="header-right">
             <div id="google_translate_element"></div>
-            <!-- Yuxarıdakı Giriş Et düyməsi -->
             <button class="auth-btn" onclick="toggleAuthModal()">Giriş Et</button>
         </div>
     </header>
+
+    <div class="app-promo-banner">
+        <span class="app-promo-logo">H&H</span>
+        <span>Xidmətlərimizi yaxından incələmək üçün Tətbiqimizə göz atın!</span>
+        <a href="https://hhiletisim.github.io/app.apk" class="download-btn" download>
+            📥 Tətbiqi Yüklə (APK)
+        </a>
+    </div>
 
     <div class="hero">
         <div class="engine-badge">H&H Mühərriki v3.5</div>
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
-        
-        <!-- PARLAQ RƏNGBƏRƏNG MIT APP INVENTOR KEÇİD DÜYMƏSİ -->
         <div>
             <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">🚀 Create New Project</a>
         </div>
@@ -352,6 +475,20 @@
         </div>
     </div>
 
+    <div class="services-section">
+        <div class="section-title" style="margin-bottom: 20px;">
+            <h2>Xidmətlərimiz</h2>
+            <p>Rəsmi tərəfdaş süni intellekt xidmətimizlə tanış olun</p>
+        </div>
+        <div class="services-grid">
+            <a href="https://agasefai.github.io" target="_blank" class="agasef-ai-card">
+                <div class="agasef-ai-logo-box">Aİ</div>
+                <h3>Ağasəf Aİ</h3>
+                <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
+            </a>
+        </div>
+    </div>
+
     <!-- REKLAM 1 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
@@ -365,30 +502,22 @@
             <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
         </div>
 
-        <!-- İLK 4 MƏQALƏ -->
         <div class="grid">
             <div class="card">
                 <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
                 <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
-                <p>İstifadəçilərimiz istənilən vaxt öz şəxsi məlumatlarının yenilənməsini və ya sistemimizdən tamamilə silinməsini tələb etmək hüququna malikdirlər.</p>
             </div>
-
             <div class="card">
                 <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
-                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
-                <p>Sistem yeni cihazdan daxilolma cəhdlərini dərhal qeydə alır və istifadəçiyə SMS və ya e-poçt vasitəsilə bildiriş göndərir.</p>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
             </div>
-
             <div class="card">
                 <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
                 <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
-                <p>Maşın öyrənməsi modulları sayəsində AI sistemi hər gün yenilənir və istifadəçi müraciətlərini 99% dəqiqliklə cavablandırmağa imkan verir.</p>
             </div>
-
             <div class="card">
                 <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
                 <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
-                <p>Tamamlanmayan tranzaksiyalar üzrə vəsaitlər 24 saat ərzində istifadəçinin hesabına və ya ödəniş etdiyi karta avtomatik olaraq bərpa olunur.</p>
             </div>
         </div>
     </div>
@@ -401,30 +530,22 @@
     </div>
 
     <div class="articles-section" style="margin-top: 0;">
-        <!-- QALAN 4 MƏQALƏ -->
         <div class="grid">
             <div class="card">
                 <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
                 <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
-                <p>Yüksək sürətli API bağlantıları, modulyar CSS karkası və inteqrasiya olunmuş verilənlər bazası idarəetməsi ilə layihələrinizi daha tez işə salın.</p>
             </div>
-
             <div class="card">
                 <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
                 <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-                <p>Şəbəkə daxilindəki şübhəli trafik anında bloklanır və istifadəçilərimizin portala kəsintisiz daxil olması təmin edilir.</p>
             </div>
-
             <div class="card">
                 <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
                 <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
-                <p>Bu arxitektura sayəsində platformamız 99.9% uptime (fasiləsiz işləmə) zəmanəti verir və istənilən yük altında sabit qalır.</p>
             </div>
-
             <div class="card">
                 <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
                 <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
-                <p>Masaüstü (desktop) rejim dəstəyi ilə istənilən cihazda eyni sabit görünüşü qoruyur.</p>
             </div>
         </div>
     </div>
@@ -432,64 +553,19 @@
     <!-- REKLAM 3 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
-        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
     </div>
 
     <footer>
+        <div class="domain-notice">
+            🌐 H&H Console developer'de kendi sitenize üzcretsiz domain kullanın!
+        </div>
+
+        <a href="https://hhiletisim.github.io/app.apk" class="footer-apk-icon" download title="APK Tətbiqini Yüklə">
+            <img src="https://api.iconify.design/lucide:file-code.svg?color=%2360a5fa" alt="H&H APK Logo">
+        </a>
+
         <div class="footer-links">
             <a href="#" onclick="alert('Çerez Siyasəti: Saytımız təcrübənizi yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə edir.'); return false;">Çerezlər</a> | 
-            <a href="#" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H Destek AI</a> | 
-            <a href="#" onclick="alert('Hizmet Koşulları: H&H İletişim portalından istifadə edərək təhlükəsizlik və istifadə şərtlərini qəbul etmiş olursunuz.'); return false;">Hizmet Koşulları</a>
-        </div>
-        <div class="copyright">
-            &copy; 2026 H&H İletişim. Bütün müəllif hüquqları qorunur. TPM/PİR Siqortası.
-        </div>
-    </footer>
-
-    <!-- SKRİPTLƏR -->
-    <script type="text/javascript">
-        function toggleAuthModal() {
-            const modal = document.getElementById('authModal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function handleCredentialResponse(response) {
-            const responsePayload = parseJwt(response.credential);
-            alert("Uğurla daxil olundu! Xoş gəldiniz, " + responsePayload.name + " (" + responsePayload.email + ")");
-            toggleAuthModal();
-            
-            const authBtn = document.querySelector('.auth-btn');
-            authBtn.textContent = responsePayload.name;
-        }
-
-        function parseJwt(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                return '%' + ('0' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            return JSON.parse(jsonPayload);
-        }
-
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: "487117230510-0c390lk7e1c4tcir408hfmpnujq7vpcv.apps.googleusercontent.com",
-                callback: handleCredentialResponse
-            });
-            
-            google.accounts.id.renderButton(
-                document.getElementById("g_id_signin"),
-                { theme: "outline", size: "large", width: 280 } 
-            );
-        }
-
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-    </html>
-    
+            <a href="#" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H D
