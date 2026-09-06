@@ -32,7 +32,6 @@
             padding: 6px 12px;
             border-radius: 6px;
         }
-        /* DAĞ MƏNZƏRƏLİ VƏ MÜHƏRRİK HİSSƏSİ */
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -117,16 +116,16 @@
             letter-spacing: 0.5px;
         }
         .articles-section {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         .section-title h2 {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 8px;
         }
         .section-title p {
@@ -136,7 +135,7 @@
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
         @media (max-width: 768px) {
             .grid {
@@ -148,16 +147,19 @@
             border: 1px solid #1f2937;
             border-radius: 10px;
             padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .card h3 {
             margin-top: 0;
             font-size: 18px;
-            color: #ffffff;
+            color: #3b82f6;
+            margin-bottom: 12px;
         }
         .card p {
             color: #9ca3af;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 10px;
         }
         .ad-container {
             text-align: center;
@@ -165,12 +167,33 @@
             padding: 10px;
         }
         footer {
-            text-align: center;
-            padding: 20px;
             background-color: #111827;
+            color: #9ca3af;
+            padding: 30px 20px;
+            border-top: 1px solid #1f2937;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+        .copyright {
             color: #6b7280;
             font-size: 12px;
-            border-top: 1px solid #1f2937;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -232,28 +255,60 @@
         <!-- END AADS AD UNIT 2454527 -->
     </div>
 
+    <!-- ƏTRAFLI VƏ ÇOXLUMƏQALƏLƏR BÖLMƏSİ -->
     <div class="articles-section">
         <div class="section-title">
-            <h2>Məxfilik, Təhlükəsizlik və Dəstək Məqalələri</h2>
-            <p>H&H platformasının təhlükəsizlik standartları, şəxsi məlumatların mühafizəsi və AI sistemimiz haqqında ətraflı məlumatlar</p>
+            <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
+            <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
         </div>
 
         <div class="grid">
             <div class="card">
-                <h3>Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
                 <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+                <p>İstifadəçilərimiz istənilən vaxt öz şəxsi məlumatlarının yenilənməsini və ya sistemimizdən tamamilə silinməsini tələb etmək hüququna malikdirlər.</p>
             </div>
+
             <div class="card">
-                <h3>H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
                 <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
+                <p>Sistem yeni cihazdan daxilolma cəhdlərini dərhal qeydə alır və istifadəçiyə SMS və ya e-poçt vasitəsilə bildiriş göndərir.</p>
             </div>
+
             <div class="card">
-                <h3>H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
                 <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+                <p>Maşın öyrənməsi modulları sayəsində AI sistemi hər gün yenilənir və istifadəçi müraciətlərini 99% dəqiqliklə cavablandırmağa imkan verir.</p>
             </div>
+
             <div class="card">
-                <h3>Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
                 <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
+                <p>Tamamlanmayan tranzaksiyalar üzrə vəsaitlər 24 saat ərzində istifadəçinin hesabına və ya ödəniş etdiyi karta avtomatik olaraq bərpa olunur.</p>
+            </div>
+
+            <div class="card">
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+                <p>Yüksək sürətli API bağlantıları, modulyar CSS karkası və inteqrasiya olunmuş verilənlər bazası idarəetməsi ilə layihələrinizi daha tez işə salın.</p>
+            </div>
+
+            <div class="card">
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+                <p>Şəbəkə daxilindəki şübhəli trafik anında bloklanır və istifadəçilərimizin portala kəsintisiz daxil olması təmin edilir.</p>
+            </div>
+
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+                <p>Bu arxitektura sayəsində platformamız 99.9% uptime (fasiləsiz işləmə) zəmanəti verir və istənilən yük altında sabit qalır.</p>
+            </div>
+
+            <div class="card">
+                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
+                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmişdir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə rahatlıqla istifadə edə bilərsiniz.</p>
+                <p>Mobil cihazlar və masaüstü kompyuterlər üçün tam adaptiv (responsive) interfeys rahat naviqasiyanı təmin edir.</p>
             </div>
         </div>
     </div>
@@ -267,8 +322,16 @@
         <!-- END AADS AD UNIT 2454519 -->
     </div>
 
+    <!-- FOOTER HİSSƏSİ (ÇEREZLƏR, H&H DESTEK Aİ, HİZMET KOŞULLARI) -->
     <footer>
-        <p>&copy; 2026 H&H İletişim. Bütün hüquqlar qorunur. TPM/PİR Siqortası.</p>
+        <div class="footer-links">
+            <a href="#adPopup" onclick="alert('Çerez Siyasəti: Saytımız təcrübənizi yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə edir.'); return false;">Çerezlər</a> | 
+            <a href="#hero" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H Destek AI</a> | 
+            <a href="#terms" onclick="alert('Hizmet Koşulları: H&H İletişim portalından istifadə edərək təhlükəsizlik və istifadə şərtlərini qəbul etmiş olursunuz.'); return false;">Hizmet Koşulları</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 H&H İletişim. Bütün müəllif hüquqları qorunur. TPM/PİR Siqortası.
+        </div>
     </footer>
 
     <!-- GOOGLE TƏRCÜMƏ SCRIPT-İ -->
