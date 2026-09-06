@@ -32,20 +32,38 @@
             padding: 6px 12px;
             border-radius: 6px;
         }
+        /* DAĞ MƏNZƏRƏLİ VƏ MÜHƏRRİK HİSSƏSİ */
         .hero {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #111827, #0b0f19);
+            padding: 80px 20px;
+            background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.9)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #1f2937;
         }
         .hero h1 {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .hero p {
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-            line-height: 1.5;
+            color: #d1d5db;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .engine-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid #2563eb;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
         .stats {
             display: flex;
@@ -53,7 +71,6 @@
             gap: 40px;
             padding: 20px;
             background-color: #111827;
-            border-top: 1px solid #1f2937;
             border-bottom: 1px solid #1f2937;
             flex-wrap: wrap;
         }
@@ -164,10 +181,13 @@
             <div class="logo-box">h</div>
             <span>H&H İletişim və Destek Portalı</span>
         </div>
+        <!-- GOOGLE DİL TƏRCÜMƏ WIDGET-I -->
+        <div id="google_translate_element"></div>
     </header>
 
     <div class="hero">
-        <h1>Müasir Oyunlar və Sistemlər üçün AI Dəstək Portalı</h1>
+        <div class="engine-badge">H&H Mühərriki v3.5</div>
+        <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
     </div>
 
@@ -203,7 +223,7 @@
         </div>
     </div>
 
-    <!-- MƏQALƏLƏRDƏN YUXARIDAKI REKLAM -->
+    <!-- MƏQALƏLƏRDƏN YUXARIDAKI REKLAM (#2454527) -->
     <div class="ad-container">
         <!-- BEGIN AADS AD UNIT 2454527 -->
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
@@ -238,7 +258,7 @@
         </div>
     </div>
 
-    <!-- MƏQALƏLƏRDƏN AŞAĞIDAKI REKLAM -->
+    <!-- MƏQALƏLƏRDƏN AŞAĞIDAKI REKLAM (#2454519) -->
     <div class="ad-container">
         <!-- BEGIN AADS AD UNIT 2454519 -->
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
@@ -250,6 +270,14 @@
     <footer>
         <p>&copy; 2026 H&H İletişim. Bütün hüquqlar qorunur. TPM/PİR Siqortası.</p>
     </footer>
+
+    <!-- GOOGLE TƏRCÜMƏ SCRIPT-İ -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
