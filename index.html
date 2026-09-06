@@ -18,11 +18,8 @@
             padding: 15px 30px;
             background-color: #111827;
             border-bottom: 1px solid #1f2937;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         .logo-area {
             display: flex;
@@ -36,6 +33,11 @@
             color: white;
             padding: 6px 12px;
             border-radius: 6px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         .auth-btn {
             background-color: #2563eb;
@@ -133,12 +135,8 @@
             align-items: center;
             justify-content: center;
             height: 40px;
-        }
-        .brand-logo img {
-            max-height: 30px;
-            max-width: 100px;
-            filter: grayscale(100%) brightness(200%);
-            opacity: 0.8;
+            color: #fff;
+            font-weight: bold;
         }
         .articles-section {
             max-width: 1100px;
@@ -295,7 +293,7 @@
             background-color: #1d4ed8;
         }
 
-        /* LOGIN / SIGNIN MODAL PANELİ */
+        /* LOGIN MODAL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -344,18 +342,12 @@
             cursor: pointer;
             margin-bottom: 10px;
         }
-        .modal-submit:hover {
-            background-color: #1d4ed8;
-        }
         .close-modal {
             background: transparent;
             border: none;
             color: #9ca3af;
             cursor: pointer;
             font-size: 13px;
-        }
-        .close-modal:hover {
-            color: white;
         }
 
         /* ÇEREZ BANNERİ */
@@ -373,11 +365,11 @@
             z-index: 999999;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
             box-sizing: border-box;
+            gap: 15px;
         }
         .cookie-text {
             font-size: 13px;
             color: #9ca3af;
-            max-width: 800px;
         }
         .cookie-btn {
             background-color: #2563eb;
@@ -387,9 +379,7 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-        }
-        .cookie-btn:hover {
-            background-color: #1d4ed8;
+            white-space: nowrap;
         }
 
         .ad-container {
@@ -400,7 +390,7 @@
         footer {
             background-color: #111827;
             color: #9ca3af;
-            padding: 30px 20px;
+            padding: 30px 20px 80px 20px; /* Çerez banneri örtməsin deyə alt boşluq */
             border-top: 1px solid #1f2937;
             text-align: center;
         }
@@ -415,6 +405,7 @@
         .footer-links a {
             color: #60a5fa;
             text-decoration: none;
+            cursor: pointer;
         }
         .copyright {
             color: #6b7280;
@@ -428,7 +419,7 @@
     <!-- ÇEREZ BİLDİRİŞİ -->
     <div id="cookieBanner" class="cookie-banner">
         <div class="cookie-text">
-            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə olunur.
+            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən istifadə olunur.
         </div>
         <button class="cookie-btn" onclick="acceptCookies()">Qəbul Et</button>
     </div>
@@ -436,10 +427,10 @@
     <!-- LOGIN MODAL -->
     <div id="authModal" class="modal-overlay">
         <div class="modal-box">
-            <h3 id="modalTitle">H&H Giriş</h3>
+            <h3>H&H Giriş və Qeydiyyat</h3>
             <input type="email" id="userEmail" class="modal-input" placeholder="E-poçt ünvanı">
             <input type="password" id="userPass" class="modal-input" placeholder="Şifrə">
-            <button class="modal-submit" onclick="submitAuth()">Daxil Ol</button>
+            <button class="modal-submit" onclick="submitAuth()">Daxil Ol / Qeydiyyat</button>
             <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
         </div>
     </div>
@@ -452,7 +443,7 @@
         <div class="header-right">
             <!-- GOOGLE DİL TƏRCÜMƏ WIDGET-I -->
             <div id="google_translate_element"></div>
-            <!-- LOGIN / SIGNIN DÜYMƏSİ -->
+            <!-- LOGIN DÜYMƏSİ -->
             <button class="auth-btn" onclick="toggleAuthModal()">Giriş / Qeydiyyat</button>
         </div>
     </header>
@@ -464,40 +455,28 @@
     </div>
 
     <div class="stats">
-        <div class="stat-item">
-            <div class="stat-num">500+</div>
-            <div class="stat-text">Partnyor Studio</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">2B+</div>
-            <div class="stat-text">Aktiv Sorğu</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">70%+</div>
-            <div class="stat-text">AI Avtomatlaşdırma</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">24/7</div>
-            <div class="stat-text">Fasiləsiz Dəstək</div>
-        </div>
+        <div class="stat-item"><div class="stat-num">500+</div><div class="stat-text">Partnyor Studio</div></div>
+        <div class="stat-item"><div class="stat-num">2B+</div><div class="stat-text">Aktiv Sorğu</div></div>
+        <div class="stat-item"><div class="stat-num">70%+</div><div class="stat-text">AI Avtomatlaşdırma</div></div>
+        <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-text">Fasiləsiz Dəstək</div></div>
     </div>
 
     <!-- BREND MARKALAR -->
     <div class="brands-section">
         <div class="brands-title">Bizə etibar edən nüfuzlu markalar</div>
         <div class="brands-grid">
-            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia5/commons/thumb/1/1b/Zynga_Logo.svg/200px-Zynga_Logo.svg.png" alt="Zynga" onerror="this.parentElement.innerHTML='<b>ZYNGU</b>'"></div>
-            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Rovio_Entertainment_logo.svg/200px-Rovio_Entertainment_logo.svg.png" alt="Rovio" onerror="this.parentElement.innerHTML='<b>ROVIO</b>'"></div>
-            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Electronic_Arts_logo_%282020%29.svg/200px-Electronic_Arts_logo_%282020%29.svg.png" alt="EA" onerror="this.parentElement.innerHTML='<b>EA GAMES</b>'"></div>
-            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ubisoft_logo_%282017%29.svg/200px-Ubisoft_logo_%282017%29.svg.png" alt="Ubisoft" onerror="this.parentElement.innerHTML='<b>UBISOFT</b>'"></div>
-            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Krafton_logo.svg/200px-Krafton_logo.svg.png" alt="Krafton" onerror="this.parentElement.innerHTML='<b>KRAFTON</b>'"></div>
+            <div class="brand-logo">ZYNGU</div>
+            <div class="brand-logo">ROVIO</div>
+            <div class="brand-logo">EA GAMES</div>
+            <div class="brand-logo">UBISOFT</div>
+            <div class="brand-logo">KRAFTON</div>
         </div>
     </div>
 
     <!-- REKLAM 1 -->
     <div class="ad-container">
-        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
-        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        <div style="width: 100%; margin: auto; position: relative;">
+            <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
     </div>
 
@@ -512,7 +491,7 @@
             <div class="card">
                 <div>
                     <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
-                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün məlumatlar 256-bit şifrələmə ilə qorunur.</p>
+                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Bütün məlumatlar 256-bit şifrələmə ilə qorunur.</p>
                 </div>
                 <div class="feedback-box">
                     <span>Bu məqalə sizə yardımcı oldu mu?</span>
@@ -578,4 +557,30 @@
                     <span>Bu məqalə sizə yardımcı oldu mu?</span>
                     <div class="feedback-btns">
                         <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <but
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                    <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 2 -->
+    <div class="ad-container">
+        <div style="width: 100%; margin: auto; position: relative;">
+            <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></ifra
