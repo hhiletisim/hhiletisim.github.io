@@ -86,7 +86,7 @@
             color: #9ca3af;
         }
         .brands-section {
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
             background-color: #0b0f19;
         }
@@ -95,25 +95,32 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .brands-grid {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            align-items: center;
         }
-        .brand-badge {
+        .brand-logo {
             background-color: #111827;
             border: 1px solid #1f2937;
-            padding: 10px 25px;
-            border-radius: 6px;
-            color: #9ca3af;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 0.5px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+        }
+        .brand-logo img {
+            max-height: 30px;
+            max-width: 100px;
+            filter: grayscale(100%) brightness(200%);
+            opacity: 0.8;
         }
         .articles-section {
             max-width: 1100px;
@@ -143,6 +150,9 @@
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card h3 {
             margin-top: 0;
@@ -154,8 +164,154 @@
             color: #9ca3af;
             font-size: 14px;
             line-height: 1.7;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
+        /* LİKE / DISLIKE HİSSƏSİ */
+        .feedback-box {
+            border-top: 1px solid #1f2937;
+            padding-top: 15px;
+            margin-top: auto;
+            font-size: 13px;
+            color: #9ca3af;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .feedback-btns {
+            display: flex;
+            gap: 10px;
+        }
+        .fb-btn {
+            background-color: #1f2937;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        .fb-btn:hover {
+            background-color: #374151;
+        }
+        .feedback-msg {
+            color: #34d399;
+            font-weight: bold;
+            display: none;
+            font-size: 12px;
+        }
+
+        /* AI SÖHBƏT PANELİ (HELPSHIFT TƏRZİ) */
+        .ai-chat-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .chat-container {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .chat-header {
+            background-color: #1f2937;
+            padding: 15px 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #60a5fa;
+        }
+        .chat-body {
+            padding: 20px;
+            height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .chat-msg {
+            background-color: #1f2937;
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .chat-msg.ai {
+            align-self: flex-start;
+            color: #e5e7eb;
+        }
+        .chat-msg.user {
+            align-self: flex-end;
+            background-color: #2563eb;
+            color: white;
+        }
+        .chat-footer {
+            display: flex;
+            border-top: 1px solid #1f2937;
+            padding: 10px;
+            background-color: #0b0f19;
+        }
+        .chat-input {
+            flex: 1;
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+        .chat-send {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            margin-left: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .chat-send:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* ÇEREZ BANNERİ */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111827;
+            border-top: 1px solid #1f2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999999;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+        .cookie-text {
+            font-size: 13px;
+            color: #9ca3af;
+            max-width: 800px;
+        }
+        .cookie-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cookie-btn:hover {
+            background-color: #1d4ed8;
+        }
+
         .ad-container {
             text-align: center;
             margin: 30px 0;
@@ -179,11 +335,6 @@
         .footer-links a {
             color: #60a5fa;
             text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: #93c5fd;
-            text-decoration: underline;
         }
         .copyright {
             color: #6b7280;
@@ -193,6 +344,13 @@
     </style>
 </head>
 <body>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə olunur. Saytdan istifadə etməklə çerez siyasətini qəbul etmiş olursunuz.
+        </div>
+        <button class="cookie-btn" onclick="acceptCookies()">Qəbul Et</button>
+    </div>
 
     <header>
         <div class="logo-area">
@@ -230,12 +388,11 @@
     <div class="brands-section">
         <div class="brands-title">Bizə etibar edən nüfuzlu markalar</div>
         <div class="brands-grid">
-            <div class="brand-badge">ZYNGU</div>
-            <div class="brand-badge">SVBO</div>
-            <div class="brand-badge">ROVIO</div>
-            <div class="brand-badge">EA GAMES</div>
-            <div class="brand-badge">UBISOFT</div>
-            <div class="brand-badge">KRAFTON</div>
+            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia5/commons/thumb/1/1b/Zynga_Logo.svg/200px-Zynga_Logo.svg.png" alt="Zynga" onerror="this.parentElement.innerHTML='<b>ZYNGU</b>'"></div>
+            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Rovio_Entertainment_logo.svg/200px-Rovio_Entertainment_logo.svg.png" alt="Rovio" onerror="this.parentElement.innerHTML='<b>ROVIO</b>'"></div>
+            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Electronic_Arts_logo_%282020%29.svg/200px-Electronic_Arts_logo_%282020%29.svg.png" alt="EA" onerror="this.parentElement.innerHTML='<b>EA GAMES</b>'"></div>
+            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ubisoft_logo_%282017%29.svg/200px-Ubisoft_logo_%282017%29.svg.png" alt="Ubisoft" onerror="this.parentElement.innerHTML='<b>UBISOFT</b>'"></div>
+            <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Krafton_logo.svg/200px-Krafton_logo.svg.png" alt="Krafton" onerror="this.parentElement.innerHTML='<b>KRAFTON</b>'"></div>
         </div>
     </div>
 
@@ -253,51 +410,93 @@
 
         <div class="grid">
             <div class="card">
-                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
-                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
-                <p>İstifadəçilərimiz istənilən vaxt öz şəxsi məlumatlarının yenilənməsini və ya sistemimizdən tamamilə silinməsini tələb etmək hüququna malikdirlər.</p>
+                <div>
+                    <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
 
             <div class="card">
-                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
-                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
-                <p>Sistem yeni cihazdan daxilolma cəhdlərini dərhal qeydə alır və istifadəçiyə SMS və ya e-poçt vasitəsilə bildiriş göndərir.</p>
+                <div>
+                    <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                    <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
 
             <div class="card">
-                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
-                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
-                <p>Maşın öyrənməsi modulları sayəsində AI sistemi hər gün yenilənir və istifadəçi müraciətlərini 99% dəqiqliklə cavablandırmağa imkan verir.</p>
+                <div>
+                    <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                    <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
 
             <div class="card">
-                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
-                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
-                <p>Tamamlanmayan tranzaksiyalar üzrə vəsaitlər 24 saat ərzində istifadəçinin hesabına və ya ödəniş etdiyi karta avtomatik olaraq bərpa olunur.</p>
+                <div>
+                    <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                    <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir və bərpa olunur.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
 
             <div class="card">
-                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
-                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
-                <p>Yüksək sürətli API bağlantıları, modulyar CSS karkası və inteqrasiya olunmuş verilənlər bazası idarəetməsi ilə layihələrinizi daha tez işə salın.</p>
+                <div>
+                    <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                    <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
 
             <div class="card">
-                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-                <p>Şəbəkə daxilindəki şübhəli trafik anında bloklanır və istifadəçilərimizin portala kəsintisiz daxil olması təmin edilir.</p>
-            </div>
-
-            <div class="card">
-                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
-                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
-                <p>Bu arxitektura sayəsində platformamız 99.9% uptime (fasiləsiz işləmə) zəmanəti verir və istənilən yük altında sabit qalır.</p>
-            </div>
-
-            <div class="card">
-                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
-                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
-                <p>Masaüstü (desktop) rejim dəstəyi ilə istənilən cihazda eyni sabit görünüşü qoruyur.</p>
+                <div>
+                    <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                    <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+                </div>
+                <div class="feedback-box">
+                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
+                    <div class="feedback-btns">
+                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
+                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
+                    </div>
+                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
+                </div>
             </div>
         </div>
     </div>
@@ -307,6 +506,21 @@
         <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
         </div>
+
+    <div class="ai-chat-section">
+        <div class="chat-container">
+            <div class="chat-header">
+                <span>🤖 Ağaşaf AI Dəstək Asistanı</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-msg ai">Salam! Mən H&H Destek AI asistanıyam. Sizə necə kömək edə bilərəm?</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Sualınızı bura yazın...">
+                <button class="chat-send" onclick="sendUserMessage()">Göndər</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-links">
@@ -320,12 +534,4 @@
     </footer>
 
     <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-                    </html>
-                    
+        // Like/Dislike düyməsi
