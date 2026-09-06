@@ -54,6 +54,47 @@
         .auth-btn:hover {
             background-color: #1d4ed8;
         }
+        
+        /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONU/DÜYMƏSİ */
+        .app-promo-banner {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #3b82f6;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .app-promo-logo {
+            background-color: #ffffff;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .download-btn {
+            background-color: #10b981;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -310,6 +351,16 @@
         </div>
     </header>
 
+    <!-- DOWNLOAD İKONU OLAN BANNU (YENİ) -->
+    <div class="app-promo-banner">
+        <span class="app-promo-logo">H&H</span>
+        <span>Xidmətlərimizi yaxından incələmək üçün Tətbiqimizə göz atın!</span>
+        <!-- APK Faylını endirmək üçün düymə (app.apk yazılan hissəyə öz APK faylınızın adını yaza bilərsiniz) -->
+        <a href="app.apk" class="download-btn" download>
+            📥 Tətbiqi Yüklə (APK)
+        </a>
+    </div>
+
     <div class="hero">
         <div class="engine-badge">H&H Mühərriki v3.5</div>
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
@@ -480,16 +531,4 @@
             
             google.accounts.id.renderButton(
                 document.getElementById("g_id_signin"),
-                { theme: "outline", size: "large", width: 280 } 
-            );
-        }
-
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-    </html>
-    
+                { th
