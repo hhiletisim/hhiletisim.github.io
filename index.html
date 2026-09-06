@@ -19,6 +19,11 @@
             background-color: #111827;
             border-bottom: 1px solid #1f2937;
         }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
         .logo-area {
             display: flex;
             align-items: center;
@@ -31,6 +36,19 @@
             color: white;
             padding: 6px 12px;
             border-radius: 6px;
+        }
+        .auth-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .auth-btn:hover {
+            background-color: #1d4ed8;
         }
         .hero {
             text-align: center;
@@ -166,7 +184,6 @@
             line-height: 1.7;
             margin-bottom: 15px;
         }
-        /* LİKE / DISLIKE HİSSƏSİ */
         .feedback-box {
             border-top: 1px solid #1f2937;
             padding-top: 15px;
@@ -201,7 +218,7 @@
             font-size: 12px;
         }
 
-        /* AI SÖHBƏT PANELİ (HELPSHIFT TƏRZİ) */
+        /* AI SÖHBƏT PANELİ */
         .ai-chat-section {
             max-width: 800px;
             margin: 50px auto;
@@ -278,6 +295,69 @@
             background-color: #1d4ed8;
         }
 
+        /* LOGIN / SIGNIN MODAL PANELİ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999999;
+        }
+        .modal-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .modal-box h3 {
+            margin-top: 0;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #0b0f19;
+            border: 1px solid #1f2937;
+            color: white;
+            border-radius: 6px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .modal-submit {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .modal-submit:hover {
+            background-color: #1d4ed8;
+        }
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .close-modal:hover {
+            color: white;
+        }
+
         /* ÇEREZ BANNERİ */
         .cookie-banner {
             position: fixed;
@@ -345,11 +425,23 @@
 </head>
 <body>
 
+    <!-- ÇEREZ BİLDİRİŞİ -->
     <div id="cookieBanner" class="cookie-banner">
         <div class="cookie-text">
-            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə olunur. Saytdan istifadə etməklə çerez siyasətini qəbul etmiş olursunuz.
+            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə olunur.
         </div>
         <button class="cookie-btn" onclick="acceptCookies()">Qəbul Et</button>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3 id="modalTitle">H&H Giriş</h3>
+            <input type="email" id="userEmail" class="modal-input" placeholder="E-poçt ünvanı">
+            <input type="password" id="userPass" class="modal-input" placeholder="Şifrə">
+            <button class="modal-submit" onclick="submitAuth()">Daxil Ol</button>
+            <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
+        </div>
     </div>
 
     <header>
@@ -357,7 +449,12 @@
             <div class="logo-box">h</div>
             <span>H&H İletişim və Destek Portalı</span>
         </div>
-        <div id="google_translate_element"></div>
+        <div class="header-right">
+            <!-- GOOGLE DİL TƏRCÜMƏ WIDGET-I -->
+            <div id="google_translate_element"></div>
+            <!-- LOGIN / SIGNIN DÜYMƏSİ -->
+            <button class="auth-btn" onclick="toggleAuthModal()">Giriş / Qeydiyyat</button>
+        </div>
     </header>
 
     <div class="hero">
@@ -385,6 +482,7 @@
         </div>
     </div>
 
+    <!-- BREND MARKALAR -->
     <div class="brands-section">
         <div class="brands-title">Bizə etibar edən nüfuzlu markalar</div>
         <div class="brands-grid">
@@ -396,12 +494,14 @@
         </div>
     </div>
 
+    <!-- REKLAM 1 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
         <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
-        </div>
+    </div>
 
+    <!-- MƏQALƏLƏR VƏ LİKE/DISLIKE SİSTEMİ -->
     <div class="articles-section">
         <div class="section-title">
             <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
@@ -412,7 +512,7 @@
             <div class="card">
                 <div>
                     <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
-                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün məlumatlar 256-bit şifrələmə ilə qorunur.</p>
                 </div>
                 <div class="feedback-box">
                     <span>Bu məqalə sizə yardımcı oldu mu?</span>
@@ -427,7 +527,7 @@
             <div class="card">
                 <div>
                     <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
-                    <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
+                    <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama parametrini aktivləşdirə bilərsiniz.</p>
                 </div>
                 <div class="feedback-box">
                     <span>Bu məqalə sizə yardımcı oldu mu?</span>
@@ -478,60 +578,4 @@
                     <span>Bu məqalə sizə yardımcı oldu mu?</span>
                     <div class="feedback-btns">
                         <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                    <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="ad-container">
-        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
-        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
-        </div>
-        </div>
-
-    <div class="ai-chat-section">
-        <div class="chat-container">
-            <div class="chat-header">
-                <span>🤖 Ağaşaf AI Dəstək Asistanı</span>
-            </div>
-            <div class="chat-body" id="chatBody">
-                <div class="chat-msg ai">Salam! Mən H&H Destek AI asistanıyam. Sizə necə kömək edə bilərəm?</div>
-            </div>
-            <div class="chat-footer">
-                <input type="text" id="chatInput" class="chat-input" placeholder="Sualınızı bura yazın...">
-                <button class="chat-send" onclick="sendUserMessage()">Göndər</button>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-links">
-            <a href="#" onclick="alert('Çerez Siyasəti: Saytımız təcrübənizi yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə edir.'); return false;">Çerezlər</a> | 
-            <a href="#" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H Destek AI</a> | 
-            <a href="#" onclick="alert('Hizmet Koşulları: H&H İletişim portalından istifadə edərək təhlükəsizlik və istifadə şərtlərini qəbul etmiş olursunuz.'); return false;">Hizmet Koşulları</a>
-        </div>
-        <div class="copyright">
-            &copy; 2026 H&H İletişim. Bütün müəllif hüquqları qorunur. TPM/PİR Siqortası.
-        </div>
-    </footer>
-
-    <script type="text/javascript">
-        // Like/Dislike düyməsi
+                        <but
