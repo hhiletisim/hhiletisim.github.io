@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H&H İletişim və Destek Portalı</title>
+    <!-- Google Identity Services (Həqiqi Google Giriş üçün) -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         body {
             margin: 0;
@@ -48,8 +50,6 @@
             cursor: pointer;
             font-weight: bold;
             font-size: 14px;
-            text-decoration: none;
-            display: inline-block;
         }
         .auth-btn:hover {
             background-color: #1d4ed8;
@@ -75,6 +75,32 @@
             line-height: 1.6;
             font-size: 16px;
         }
+        /* PARLAQ RƏNGBƏRƏNG CREATE NEW PROJECT DÜYMƏSİ */
+        .create-project-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff007f, #7928ca, #2563eb, #00f2fe);
+            background-size: 300% 300%;
+            animation: glowing 5s ease infinite;
+            box-shadow: 0 0 20px rgba(121, 40, 202, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .create-project-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.9);
+        }
+        @keyframes glowing {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .engine-badge {
             display: inline-block;
             background: rgba(37, 99, 235, 0.2);
@@ -213,6 +239,42 @@
             margin-top: 10px;
         }
 
+        /* LOGIN MODAL STİLİ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999999;
+        }
+        .modal-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .modal-box h3 {
+            margin-top: 0;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 26px;
@@ -222,6 +284,20 @@
 </head>
 <body>
 
+    <!-- GİRİŞ MODALI -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>H&H Serverinə Giriş</h3>
+            <p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Davam etmək üçün həqiqi Google hesabınızla daxil olun:</p>
+            
+            <!-- Google Giriş Düyməsi -->
+            <div id="g_id_signin" style="display: flex; justify-content: center; margin-bottom: 15px;"></div>
+
+            <br>
+            <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
+        </div>
+    </div>
+
     <header>
         <div class="logo-area">
             <div class="logo-box">h</div>
@@ -229,8 +305,8 @@
         </div>
         <div class="header-right">
             <div id="google_translate_element"></div>
-            <!-- Giriş Et düyməsi birbaşa MIT App Inventor səhifəsinə yönləndirir -->
-            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="auth-btn">Giriş Et</a>
+            <!-- Yuxarıdakı Giriş Et düyməsi -->
+            <button class="auth-btn" onclick="toggleAuthModal()">Giriş Et</button>
         </div>
     </header>
 
@@ -238,6 +314,11 @@
         <div class="engine-badge">H&H Mühərriki v3.5</div>
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
+        
+        <!-- PARLAQ RƏNGBƏRƏNG MIT APP INVENTOR KEÇİD DÜYMƏSİ -->
+        <div>
+            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">🚀 Create New Project</a>
+        </div>
     </div>
 
     <div class="stats">
@@ -366,8 +447,43 @@
         </div>
     </footer>
 
-    <!-- Google Translate Skripti -->
+    <!-- SKRİPTLƏR -->
     <script type="text/javascript">
+        function toggleAuthModal() {
+            const modal = document.getElementById('authModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function handleCredentialResponse(response) {
+            const responsePayload = parseJwt(response.credential);
+            alert("Uğurla daxil olundu! Xoş gəldiniz, " + responsePayload.name + " (" + responsePayload.email + ")");
+            toggleAuthModal();
+            
+            const authBtn = document.querySelector('.auth-btn');
+            authBtn.textContent = responsePayload.name;
+        }
+
+        function parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('0' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "487117230510-0c390lk7e1c4tcir408hfmpnujq7vpcv.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+            
+            google.accounts.id.renderButton(
+                document.getElementById("g_id_signin"),
+                { theme: "outline", size: "large", width: 280 } 
+            );
+        }
+
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
@@ -375,5 +491,5 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
-            </html>
-            
+    </html>
+    
