@@ -18,8 +18,6 @@
             padding: 15px 30px;
             background-color: #111827;
             border-bottom: 1px solid #1f2937;
-            flex-wrap: wrap;
-            gap: 15px;
         }
         .logo-area {
             display: flex;
@@ -33,24 +31,6 @@
             color: white;
             padding: 6px 12px;
             border-radius: 6px;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .auth-btn {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .auth-btn:hover {
-            background-color: #1d4ed8;
         }
         .hero {
             text-align: center;
@@ -106,7 +86,7 @@
             color: #9ca3af;
         }
         .brands-section {
-            padding: 35px 20px;
+            padding: 30px 20px;
             text-align: center;
             background-color: #0b0f19;
         }
@@ -115,28 +95,25 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .brands-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            align-items: center;
         }
-        .brand-logo {
+        .brand-badge {
             background-color: #111827;
             border: 1px solid #1f2937;
-            padding: 12px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 40px;
-            color: #fff;
+            padding: 10px 25px;
+            border-radius: 6px;
+            color: #9ca3af;
             font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
         }
         .articles-section {
             max-width: 1100px;
@@ -166,9 +143,6 @@
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         .card h3 {
             margin-top: 0;
@@ -180,208 +154,8 @@
             color: #9ca3af;
             font-size: 14px;
             line-height: 1.7;
-            margin-bottom: 15px;
-        }
-        .feedback-box {
-            border-top: 1px solid #1f2937;
-            padding-top: 15px;
-            margin-top: auto;
-            font-size: 13px;
-            color: #9ca3af;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .feedback-btns {
-            display: flex;
-            gap: 10px;
-        }
-        .fb-btn {
-            background-color: #1f2937;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background 0.2s;
-        }
-        .fb-btn:hover {
-            background-color: #374151;
-        }
-        .feedback-msg {
-            color: #34d399;
-            font-weight: bold;
-            display: none;
-            font-size: 12px;
-        }
-
-        /* AI SÖHBƏT PANELİ */
-        .ai-chat-section {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .chat-container {
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .chat-header {
-            background-color: #1f2937;
-            padding: 15px 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #60a5fa;
-        }
-        .chat-body {
-            padding: 20px;
-            height: 200px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .chat-msg {
-            background-color: #1f2937;
-            padding: 10px 15px;
-            border-radius: 8px;
-            max-width: 80%;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .chat-msg.ai {
-            align-self: flex-start;
-            color: #e5e7eb;
-        }
-        .chat-msg.user {
-            align-self: flex-end;
-            background-color: #2563eb;
-            color: white;
-        }
-        .chat-footer {
-            display: flex;
-            border-top: 1px solid #1f2937;
-            padding: 10px;
-            background-color: #0b0f19;
-        }
-        .chat-input {
-            flex: 1;
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            padding: 10px 15px;
-            color: white;
-            border-radius: 6px;
-            outline: none;
-            font-size: 14px;
-        }
-        .chat-send {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 0 20px;
-            margin-left: 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .chat-send:hover {
-            background-color: #1d4ed8;
-        }
-
-        /* LOGIN MODAL */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999999;
-        }
-        .modal-box {
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            padding: 30px;
-            border-radius: 12px;
-            width: 350px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-        .modal-box h3 {
-            margin-top: 0;
-            color: #60a5fa;
-            margin-bottom: 20px;
-        }
-        .modal-input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: #0b0f19;
-            border: 1px solid #1f2937;
-            color: white;
-            border-radius: 6px;
-            box-sizing: border-box;
-            outline: none;
-        }
-        .modal-submit {
-            width: 100%;
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
             margin-bottom: 10px;
         }
-        .close-modal {
-            background: transparent;
-            border: none;
-            color: #9ca3af;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        /* ÇEREZ BANNERİ */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #111827;
-            border-top: 1px solid #1f2937;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 999999;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
-            box-sizing: border-box;
-            gap: 15px;
-        }
-        .cookie-text {
-            font-size: 13px;
-            color: #9ca3af;
-        }
-        .cookie-btn {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
         .ad-container {
             text-align: center;
             margin: 30px 0;
@@ -390,7 +164,7 @@
         footer {
             background-color: #111827;
             color: #9ca3af;
-            padding: 30px 20px 80px 20px; /* Çerez banneri örtməsin deyə alt boşluq */
+            padding: 30px 20px;
             border-top: 1px solid #1f2937;
             text-align: center;
         }
@@ -405,7 +179,11 @@
         .footer-links a {
             color: #60a5fa;
             text-decoration: none;
-            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
         }
         .copyright {
             color: #6b7280;
@@ -416,36 +194,12 @@
 </head>
 <body>
 
-    <!-- ÇEREZ BİLDİRİŞİ -->
-    <div id="cookieBanner" class="cookie-banner">
-        <div class="cookie-text">
-            Saytımızda istifadəçi təcrübəsini yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən istifadə olunur.
-        </div>
-        <button class="cookie-btn" onclick="acceptCookies()">Qəbul Et</button>
-    </div>
-
-    <!-- LOGIN MODAL -->
-    <div id="authModal" class="modal-overlay">
-        <div class="modal-box">
-            <h3>H&H Giriş və Qeydiyyat</h3>
-            <input type="email" id="userEmail" class="modal-input" placeholder="E-poçt ünvanı">
-            <input type="password" id="userPass" class="modal-input" placeholder="Şifrə">
-            <button class="modal-submit" onclick="submitAuth()">Daxil Ol / Qeydiyyat</button>
-            <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
-        </div>
-    </div>
-
     <header>
         <div class="logo-area">
             <div class="logo-box">h</div>
             <span>H&H İletişim və Destek Portalı</span>
         </div>
-        <div class="header-right">
-            <!-- GOOGLE DİL TƏRCÜMƏ WIDGET-I -->
-            <div id="google_translate_element"></div>
-            <!-- LOGIN DÜYMƏSİ -->
-            <button class="auth-btn" onclick="toggleAuthModal()">Giriş / Qeydiyyat</button>
-        </div>
+        <div id="google_translate_element"></div>
     </header>
 
     <div class="hero">
@@ -455,32 +209,42 @@
     </div>
 
     <div class="stats">
-        <div class="stat-item"><div class="stat-num">500+</div><div class="stat-text">Partnyor Studio</div></div>
-        <div class="stat-item"><div class="stat-num">2B+</div><div class="stat-text">Aktiv Sorğu</div></div>
-        <div class="stat-item"><div class="stat-num">70%+</div><div class="stat-text">AI Avtomatlaşdırma</div></div>
-        <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-text">Fasiləsiz Dəstək</div></div>
+        <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-text">Partnyor Studio</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">2B+</div>
+            <div class="stat-text">Aktiv Sorğu</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">70%+</div>
+            <div class="stat-text">AI Avtomatlaşdırma</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">24/7</div>
+            <div class="stat-text">Fasiləsiz Dəstək</div>
+        </div>
     </div>
 
-    <!-- BREND MARKALAR -->
     <div class="brands-section">
         <div class="brands-title">Bizə etibar edən nüfuzlu markalar</div>
         <div class="brands-grid">
-            <div class="brand-logo">ZYNGU</div>
-            <div class="brand-logo">ROVIO</div>
-            <div class="brand-logo">EA GAMES</div>
-            <div class="brand-logo">UBISOFT</div>
-            <div class="brand-logo">KRAFTON</div>
+            <div class="brand-badge">ZYNGU</div>
+            <div class="brand-badge">SVBO</div>
+            <div class="brand-badge">ROVIO</div>
+            <div class="brand-badge">EA GAMES</div>
+            <div class="brand-badge">UBISOFT</div>
+            <div class="brand-badge">KRAFTON</div>
         </div>
     </div>
 
-    <!-- REKLAM 1 -->
     <div class="ad-container">
-        <div style="width: 100%; margin: auto; position: relative;">
-            <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
-    </div>
+        </div>
 
-    <!-- MƏQALƏLƏR VƏ LİKE/DISLIKE SİSTEMİ -->
     <div class="articles-section">
         <div class="section-title">
             <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
@@ -489,98 +253,78 @@
 
         <div class="grid">
             <div class="card">
-                <div>
-                    <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
-                    <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Bütün məlumatlar 256-bit şifrələmə ilə qorunur.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+                <p>İstifadəçilərimiz istənilən vaxt öz şəxsi məlumatlarının yenilənməsini və ya sistemimizdən tamamilə silinməsini tələb etmək hüququna malikdirlər.</p>
             </div>
 
             <div class="card">
-                <div>
-                    <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
-                    <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama parametrini aktivləşdirə bilərsiniz.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı icazəsiz girişlərdən qoruya bilərsiniz.</p>
+                <p>Sistem yeni cihazdan daxilolma cəhdlərini dərhal qeydə alır və istifadəçiyə SMS və ya e-poçt vasitəsilə bildiriş göndərir.</p>
             </div>
 
             <div class="card">
-                <div>
-                    <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
-                    <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+                <p>Maşın öyrənməsi modulları sayəsində AI sistemi hər gün yenilənir və istifadəçi müraciətlərini 99% dəqiqliklə cavablandırmağa imkan verir.</p>
             </div>
 
             <div class="card">
-                <div>
-                    <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
-                    <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir və bərpa olunur.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
+                <p>Tamamlanmayan tranzaksiyalar üzrə vəsaitlər 24 saat ərzində istifadəçinin hesabına və ya ödəniş etdiyi karta avtomatik olaraq bərpa olunur.</p>
             </div>
 
             <div class="card">
-                <div>
-                    <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
-                    <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+                <p>Yüksək sürətli API bağlantıları, modulyar CSS karkası və inteqrasiya olunmuş verilənlər bazası idarəetməsi ilə layihələrinizi daha tez işə salın.</p>
             </div>
 
             <div class="card">
-                <div>
-                    <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                    <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-                </div>
-                <div class="feedback-box">
-                    <span>Bu məqalə sizə yardımcı oldu mu?</span>
-                    <div class="feedback-btns">
-                        <button class="fb-btn" onclick="sendFeedback(this)">👍 Bəli</button>
-                        <button class="fb-btn" onclick="sendFeedback(this)">👎 Xeyr</button>
-                    </div>
-                    <div class="feedback-msg">Bildiriminiz için teşekkürler!</div>
-                </div>
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+                <p>Şəbəkə daxilindəki şübhəli trafik anında bloklanır və istifadəçilərimizin portala kəsintisiz daxil olması təmin edilir.</p>
+            </div>
+
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+                <p>Bu arxitektura sayəsində platformamız 99.9% uptime (fasiləsiz işləmə) zəmanəti verir və istənilən yük altında sabit qalır.</p>
+            </div>
+
+            <div class="card">
+                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
+                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
+                <p>Masaüstü (desktop) rejim dəstəyi ilə istənilən cihazda eyni sabit görünüşü qoruyur.</p>
             </div>
         </div>
     </div>
 
-    <!-- REKLAM 2 -->
     <div class="ad-container">
-        <div style="width: 100%; margin: auto; position: relative;">
-            <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></ifra
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+        </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="alert('Çerez Siyasəti: Saytımız təcrübənizi yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə edir.'); return false;">Çerezlər</a> | 
+            <a href="#" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H Destek AI</a> | 
+            <a href="#" onclick="alert('Hizmet Koşulları: H&H İletişim portalından istifadə edərək təhlükəsizlik və istifadə şərtlərini qəbul etmiş olursunuz.'); return false;">Hizmet Koşulları</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 H&H İletişim. Bütün müəllif hüquqları qorunur. TPM/PİR Siqortası.
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
