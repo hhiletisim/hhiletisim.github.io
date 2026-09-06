@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H&H İletişim və Destek Portalı</title>
-    <!-- Google Identity Services (Həqiqi Google Giriş üçün) -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         body {
@@ -40,6 +39,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .auth-btn {
             background-color: #2563eb;
@@ -55,7 +55,7 @@
             background-color: #1d4ed8;
         }
         
-        /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONu */
+        /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONU */
         .app-promo-banner {
             background: linear-gradient(135deg, #1e40af, #2563eb);
             color: #ffffff;
@@ -325,13 +325,11 @@
 </head>
 <body>
 
-    <!-- GİRİŞ MODALI -->
     <div id="authModal" class="modal-overlay">
         <div class="modal-box">
             <h3>H&H Serverinə Giriş</h3>
             <p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Davam etmək üçün həqiqi Google hesabınızla daxil olun:</p>
             
-            <!-- Google Giriş Düyməsi -->
             <div id="g_id_signin" style="display: flex; justify-content: center; margin-bottom: 15px;"></div>
 
             <br>
@@ -346,16 +344,13 @@
         </div>
         <div class="header-right">
             <div id="google_translate_element"></div>
-            <!-- Yuxarıdakı Giriş Et düyməsi -->
             <button class="auth-btn" onclick="toggleAuthModal()">Giriş Et</button>
         </div>
     </header>
 
-    <!-- DOWNLOAD İKONU OLAN BANNU (DÜZGÜN LİNK İLƏ) -->
     <div class="app-promo-banner">
         <span class="app-promo-logo">H&H</span>
         <span>Xidmətlərimizi yaxından incələmək üçün Tətbiqimizə göz atın!</span>
-        <!-- GitHub səhifənlə tam uyğun işləməsi üçün birbaşa ünvan -->
         <a href="https://hhiletisim.github.io/app.apk" class="download-btn" download>
             📥 Tətbiqi Yüklə (APK)
         </a>
@@ -366,7 +361,6 @@
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
         
-        <!-- PARLAQ RƏNGBƏRƏNG MIT APP INVENTOR KEÇİD DÜYMƏSİ -->
         <div>
             <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">🚀 Create New Project</a>
         </div>
@@ -403,7 +397,6 @@
         </div>
     </div>
 
-    <!-- REKLAM 1 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
         <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
@@ -416,7 +409,6 @@
             <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
         </div>
 
-        <!-- İLK 4 MƏQALƏ -->
         <div class="grid">
             <div class="card">
                 <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
@@ -444,7 +436,6 @@
         </div>
     </div>
 
-    <!-- REKLAM 2 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
         <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
@@ -452,7 +443,6 @@
     </div>
 
     <div class="articles-section" style="margin-top: 0;">
-        <!-- QALAN 4 MƏQALƏ -->
         <div class="grid">
             <div class="card">
                 <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
@@ -480,7 +470,6 @@
         </div>
     </div>
 
-    <!-- REKLAM 3 -->
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
         <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
@@ -498,7 +487,6 @@
         </div>
     </footer>
 
-    <!-- SKRİPTLƏR -->
     <script type="text/javascript">
         function toggleAuthModal() {
             const modal = document.getElementById('authModal');
@@ -531,4 +519,16 @@
             
             google.accounts.id.renderButton(
                 document.getElementById("g_id_signin"),
-                { theme: "outli
+                { theme: "outline", size: "large", width: 280 } 
+            );
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+                </html>
+                
