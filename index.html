@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H&H İletişim və Destek Portalı</title>
-    <!-- Google Identity Services -->
+    <!-- Google Identity Services (Həqiqi Google Giriş üçün) -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         body {
@@ -56,29 +56,6 @@
             background-color: #1d4ed8;
         }
         
-        /* AXTARIŞ ÇUBUĞU STİLİ */
-        .search-container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .search-input {
-            width: 100%;
-            padding: 12px 20px;
-            background-color: #111827;
-            border: 1px solid #374151;
-            border-radius: 30px;
-            color: #ffffff;
-            font-size: 15px;
-            outline: none;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
-        }
-        .search-input:focus {
-            border-color: #2563eb;
-        }
-
         /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONU */
         .app-promo-banner {
             background: linear-gradient(135deg, #1e40af, #2563eb);
@@ -309,7 +286,6 @@
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
         }
         .card h3 {
             margin-top: 0;
@@ -352,24 +328,20 @@
             color: #93c5fd;
             text-decoration: underline;
         }
-        /* DAHA BÖYÜK VƏ QÜSURSUZ H&H DEVELOPER CONSOLE BANNERİ */
         .domain-notice {
-            background: linear-gradient(135deg, #1e40af, #2563eb);
-            border: 2px solid #60a5fa;
-            color: #ffffff;
-            padding: 20px 30px;
-            border-radius: 12px;
-            max-width: 750px;
-            margin: 0 auto 25px auto;
-            font-size: 16px;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid #2563eb;
+            color: #93c5fd;
+            padding: 12px 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            font-size: 13px;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-            letter-spacing: 0.5px;
-            text-align: center;
+            gap: 10px;
         }
         .footer-apk-icon {
             display: inline-block;
@@ -428,10 +400,6 @@
             .hero h1 {
                 font-size: 26px;
             }
-            .domain-notice {
-                font-size: 14px;
-                padding: 15px 20px;
-            }
         }
     </style>
 </head>
@@ -454,7 +422,6 @@
             <span>H&H İletişim və Destek Portalı</span>
         </div>
         <div class="header-right">
-            <!-- GOOGLE TRANSLATE TRANSFER ELEMENTİ -->
             <div id="google_translate_element"></div>
             <button class="auth-btn" onclick="toggleAuthModal()">Giriş Et</button>
         </div>
@@ -466,11 +433,6 @@
         <a href="https://hhiletisim.github.io/app.apk" class="download-btn" download>
             📥 Tətbiqi Yüklə (APK)
         </a>
-    </div>
-
-    <!-- AXTARIŞ ÇUBUĞU -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Məqalələrdə və ya suallarda axtarış edin..." onkeyup="searchCards()">
     </div>
 
     <div class="hero">
@@ -540,38 +502,22 @@
             <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
         </div>
 
-        <div class="grid" id="cardsGrid">
+        <div class="grid">
             <div class="card">
-                <h3>1) Öz uygulamamı necə qurum?</h3>
-                <p>H&H Mühərriki v3.5 ilə öz tətbiqinizi sıfırdan rahatlıqla qura bilərsiniz. Yuxarıdakı "Create New Project" düyməsinə basaraq App Inventor mühiti üzərindən mobil tətbiq dizayn etməyə başlaya bilərsiniz.</p>
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
             </div>
             <div class="card">
-                <h3>2) Hesabımı necə güvəndə tutum?</h3>
-                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün həqiqi Google Giriş (GSI) və iki mərhələli doğrulama sistemlərindən istifadə olunur. Şübhəli girişlər dərhal qeydə alınır və qorunur.</p>
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
             </div>
             <div class="card">
                 <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
-                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. AI sistemi istifadəçinin suallarını anında analiz edərək ən uyğun həll yollarını 99% dəqiqliklə təqdim edir.</p>
+                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
             </div>
             <div class="card">
                 <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
-                <p>Balansa yükləmə və ya almalar zamanı baş verən texniki gecikmələr sistem tərəfindən avtomatik təsbit edilir və 24 saat ərzində vəsaitiniz bərpa olunur.</p>
-            </div>
-            <div class="card">
-                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
-                <p>Tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini yaratmağa imkan verən innovativ çərçivədir. Yüksək sürətli API bağlantıları ilə layihələrinizi tez işə salın.</p>
-            </div>
-            <div class="card">
-                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir və kəsintisiz işləməyi təmin edir.</p>
-            </div>
-            <div class="card">
-                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq</h3>
-                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində işləyir və 99.9% uptime (fasiləsiz işləmə) zəmanəti verir.</p>
-            </div>
-            <div class="card">
-                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
-                <p>Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə rahatlıqla istifadə edə bilərsiniz.</p>
+                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
             </div>
         </div>
     </div>
@@ -580,4 +526,46 @@
     <div class="ad-container">
         <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
         <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
-   
+        </div>
+    </div>
+
+    <div class="articles-section" style="margin-top: 0;">
+        <div class="grid">
+            <div class="card">
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+            </div>
+            <div class="card">
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+            </div>
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+            </div>
+            <div class="card">
+                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
+                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 3 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="domain-notice">
+            🌐 H&H Console developer'de kendi sitenize üzcretsiz domain kullanın!
+        </div>
+
+        <a href="https://hhiletisim.github.io/app.apk" class="footer-apk-icon" download title="APK Tətbiqini Yüklə">
+            <img src="https://api.iconify.design/lucide:file-code.svg?color=%2360a5fa" alt="H&H APK Logo">
+        </a>
+
+        <div class="footer-links">
+            <a href="#" onclick="alert('Çerez Siyasəti: Saytımız təcrübənizi yaxşılaşdırmaq və reklamları göstərmək üçün çerezlərdən (cookies) istifadə edir.'); return false;">Çerezlər</a> | 
+            <a href="#" onclick="alert('H&H Destek AI: Ağaşaf AI canlı dəstək sistemimiz 24/7 xidmətinizdədir.'); return false;">H&H D
