@@ -5,71 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H&H İletişim</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 {
+
+        body {
+            background-color: #f8f9fa;
             color: #333;
-            margin-bottom: 20px;
         }
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
+
+        /* Header / Nav */
+        header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
             font-weight: bold;
-            transition: 0.3s;
+            color: #0056b3;
+            font-size: 18px;
+            text-decoration: none;
         }
-        .btn:hover {
+
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* Hero 1 */
+        .hero-main {
             background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
         }
-        .btn-agasef {
-            background-color: #28a745;
+
+        .hero-main h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
         }
-        .btn-agasef:hover {
-            background-color: #218838;
+
+        .hero-main p {
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            opacity: 0.9;
+            line-height: 1.5;
         }
-        .adsterra-container {
-            margin-top: 20px;
+
+        .btn-orange {
+            background-color: #ff6b00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            display: inline-block;
+        }
+
+        /* Hero 2 - Ağasəf AI */
+        .hero-ai {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-ai h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .hero-ai p {
+            font-size: 13px;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            opacity: 0.9;
+        }
+
+        .btn-green {
+            background-color: #00c853;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            display: inline-block;
+        }
+
+        /* Services */
+        .services {
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .services h3 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: left;
+        }
+
+        .card h4 {
+            color: #0056b3;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Reklam Bölməsi */
+        .ad-section {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>H&H İletişim</h1>
-        
-        <a href="agasef.html" class="btn btn-agasef">Ağasəf Aİ</a>
-        <a href="https://wa.me/994000000000" class="btn">WhatsApp Əlaqə</a>
-        
-        <div class="adsterra-container">
-            <!-- BEGIN AADS AD UNIT 2454519 -->
-            <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
-                <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:100%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+    <header>
+        <a href="#" class="logo">H&H İletişim</a>
+        <nav>
+            <a href="#">Ana Səhifə</a>
+            <a href="#">Xidmətlər</a>
+            <a href="agasef.html">Ağasəf AI</a>
+            <a href="#">Əlaqə</a>
+        </nav>
+    </header>
+
+    <section class="hero-main">
+        <h1>Geniş Çaplı Rabitə və İT Həlləri</h1>
+        <p>H&H İletişim olaraq müasir texnologiyalar və peşəkar komandamızla biznesinizi gələcəyə daşıyırıq.</p>
+        <a href="#" class="btn-orange">Xidmətlərimizə Bax</a>
+    </section>
+
+    <section class="hero-ai">
+        <h2>Ağasəf Aİ Xidmət Mərkəzi</h2>
+        <p>Süni intellekt dəstəkli yeni nəsil texnologiyalarımızla tanış olun və imkanlarımızı kəşf edin.</p>
+        <a href="agasef.html" class="btn-green">🤖 Ağasəf AI Keçid Et</a>
+    </section>
+
+    <section class="services">
+        <h3>Xidmətlərimiz</h3>
+        <div class="grid">
+            <div class="card">
+                <h4>Korporativ Şəbəkələr</h4>
+                <p>Şirkətiniz üçün təhlükəsiz, sürətli və kəsintisiz daxili/xarici rabitə xətlərinin qurulması.</p>
+            </div>
+            <div class="card">
+                <h4>İT Dəstək və Bulud</h4>
+                <p>7/24 texniki monitorinq, server idarəçiliyi və bulud əsaslı məlumatların qorunması sistemləri.</p>
+            </div>
+            <div class="card">
+                <h4>Rəqəmsal Transformasiya</h4>
+                <p>Biznes proseslərinizin avtomatlaşdırılması və müasir kommunikasiya vasitələri ilə inteqrasiyası.</p>
             </div>
         </div>
+    </section>
+
+    <!-- A-Ads Reklam Bölməsi -->
+    <div class="ad-section">
+        <!-- BEGIN AADS AD UNIT 2454519 -->
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
+            <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:100%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 H&H İletişim. Bütün hüquqlar qorunur. | Məfılik Siyasəti
+    </footer>
 
 </body>
 </html>
