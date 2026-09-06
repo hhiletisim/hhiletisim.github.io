@@ -425,13 +425,11 @@
         // Google Giriş Cavabını Emal Edən Funksiya
         function handleCredentialResponse(response) {
             console.EncodedToken = response.credential;
-            // Tokeni deşifrə edib istifadəçi məlumatını ala bilərik (və ya serverə göndərə bilərik)
             const responsePayload = parseJwt(response.credential);
             
             alert("Uğurla daxil olundu! Xoş gəldiniz, " + responsePayload.name + " (" + responsePayload.email + ")");
             toggleAuthModal();
             
-            // Yuxarıdakı düyməni istifadəçinin adına dəyişək
             const authBtn = document.querySelector('.auth-btn');
             authBtn.textContent = responsePayload.name;
         }
@@ -446,13 +444,12 @@
         }
 
         window.onload = function () {
-            // Google Girişi İnisializasiya edirik
+            // Google Girişi İnisializasiya edirik (Client ID səliqəli yerləşdirildi)
             google.accounts.id.initialize({
-                client_id: "SƏNİN_GOOGLE_CLIENT_ID_BURAYA_YAZILMALIDIR.apps.googleusercontent.com", // Öz Client ID-ni bura yazacaqsan
+                client_id: "487117230510-0c390lk7e1c4tcir408hfmpnujq7vpcv.apps.googleusercontent.com",
                 callback: handleCredentialResponse
             });
             
-            // Google rəsmi giriş düyməsini modula çəkirik
             google.accounts.id.renderButton(
                 document.getElementById("g_id_signin"),
                 { theme: "outline", size: "large", width: 280 } 
@@ -466,4 +463,5 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
-</html>
+    </html>
+    
