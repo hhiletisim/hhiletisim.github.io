@@ -134,8 +134,8 @@
         }
         .create-project-btn {
             display: inline-block;
-            padding: 15px 35px;
-            font-size: 18px;
+            padding: 14px 30px;
+            font-size: 16px;
             font-weight: bold;
             color: #ffffff;
             text-decoration: none;
@@ -145,6 +145,8 @@
             animation: glowing 5s ease infinite;
             box-shadow: 0 0 20px rgba(121, 40, 202, 0.6);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            min-width: 320px;
         }
         .create-project-btn:hover {
             transform: scale(1.05);
@@ -404,6 +406,43 @@
         .footer-apk-icon img:hover {
             transform: scale(1.1);
         }
+        /* Cookie Banner Stili */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111827;
+            border-top: 1px solid #2563eb;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+            z-index: 999999;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .cookie-text {
+            color: #d1d5db;
+            font-size: 14px;
+            margin: 0;
+        }
+        .cookie-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: background-color 0.2s;
+        }
+        .cookie-btn:hover {
+            background-color: #1d4ed8;
+        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 26px;
@@ -448,9 +487,12 @@
         <div class="engine-badge">H&H Mühərriki v3.5</div>
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
+        
         <div class="hero-buttons-container">
-            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">Create new web sites</a>
-            <a href="https://hhiletisim.github.io/app.apk" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #10b981, #059669, #3b82f6);">Create new apps skretvhware pro With</a>
+            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">Create new apps</a>
+            <a href="https://hhiletisim.github.io/app.apk" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #10b981, #059669, #3b82f6);">Create new apps (plus) skretvhware pro</a>
+            <a href="https://sites.google.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #f59e0b, #d97706, #ef4444);">Create new web sites</a>
+            <a href="https://www.canva.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #8b5cf6, #6d28d9, #ec4899);">Create new web site (plus) buisnes</a>
         </div>
     </div>
 
@@ -540,27 +582,4 @@
         </div>
     </div>
 
-    <!-- REKLAM 2 -->
-    <div class="ad-container">
-        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
-        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
-        </div>
-    </div>
-
-    <div class="articles-section" style="margin-top: 0;">
-        <div class="grid">
-            <div class="card">
-                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
-                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
-            </div>
-            <div class="card">
-                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-            </div>
-            <div class="card">
-                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
-                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
-            </div>
-            <div class="card">
-                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
-                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı i
+    <!--
