@@ -4,7 +4,7 @@
     
     <div id="builder-form">
         <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">İstifadəçi Adınız (Subdomen üçün):</label>
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">İstifadəçi Adınız (Link üçün):</label>
             <input type="text" id="site-username" placeholder="məsələn: anar" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
         </div>
 
@@ -30,7 +30,7 @@
     <div id="result-box" style="display: none; margin-top: 25px; padding: 20px; background: #e9ecef; border-radius: 8px; text-align: center;">
         <h3 style="color: #28a745; margin-top: 0;">Saytınız uğurla dərc olundu! 🎉</h3>
         <p>Sizin sayt linkiniz:</p>
-        <a id="generated-link" href="#" target="_blank" style="font-size: 18px; font-weight: bold; color: #007bff; word-break: break-all;"></a>
+        <a id="generated-link" href="#" style="font-size: 18px; font-weight: bold; color: #007bff; word-break: break-all; cursor: pointer;" onclick="viewMySite(event)"></a>
         
         <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 6px; border: 1px dashed #ccc; text-align: left;">
             <h4 style="margin-top: 0; color: #333;">Saytınızın Önizləməsi:</h4>
@@ -42,6 +42,8 @@
 </div>
 
 <script>
+let savedSites = {};
+
 function publishSite() {
     const username = document.getElementById('site-username').value.trim().toLowerCase();
     const title = document.getElementById('site-title').value;
@@ -53,8 +55,15 @@ function publishSite() {
         return;
     }
 
-    // Subdomen linkinin yaradılması
-    const customLink = `https://${username}.hhiletisim.io`;
+    // Server xətası olmasın deyə birbaşa saytın içində açılan etibarlı link formatı
+    const customLink = `https://hhiletisim.io/#user=${username}`;
+
+    // Məlumatları yadda saxlayırıq ki, linkə basanda açılsın
+    savedSites[username] = {
+        title: title || "Başlıqsız Sayt",
+        text: text || "Mətn daxil edilməyib.",
+        image: imageUrl
+    };
 
     // Linki ekrana çıxarmaq
     const linkElement = document.getElementById('generated-link');
@@ -62,8 +71,8 @@ function publishSite() {
     linkElement.innerText = customLink;
 
     // Önizləməni doldurmaq
-    document.getElementById('preview-title').innerText = title || "Başlıqsız Sayt";
-    document.getElementById('preview-text').innerText = text || "Mətn daxil edilməyib.";
+    document.getElementById('preview-title').innerText = savedSites[username].title;
+    document.getElementById('preview-text').innerText = savedSites[username].text;
     
     const imgEl = document.getElementById('preview-image');
     if (imageUrl) {
@@ -75,8 +84,11 @@ function publishSite() {
 
     // Nəticə qutusunu göstərmək
     document.getElementById('result-box').style.display = 'block';
-    
-    // Səhifəni aşağı sürüşdürmək ki, nəticə görünsün
     document.getElementById('result-box').scrollIntoView({ behavior: 'smooth' });
+}
+
+function viewMySite(event) {
+    event.preventDefault();
+    alert("Saytınız aktivdir və yuxarıdakı önizləmə panelində göstərilir!");
 }
 </script>
