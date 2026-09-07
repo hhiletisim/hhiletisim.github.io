@@ -1,94 +1,571 @@
-<!-- Veb-sayt Yaradıcı Konstruktoru -->
-<div class="builder-container" style="max-width: 800px; margin: 30px auto; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
-    <h2 style="color: #333; text-align: center; margin-bottom: 20px;">Öz Veb-Saytını Yarat</h2>
-    
-    <div id="builder-form">
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">İstifadəçi Adınız (Link üçün):</label>
-            <input type="text" id="site-username" placeholder="məsələn: anar" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
-        </div>
-
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">Saytın Başlığı:</label>
-            <input type="text" id="site-title" placeholder="Mənim Şəxsi Saytım" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
-        </div>
-
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">Haqqınızda / Mətn:</label>
-            <textarea id="site-text" rows="4" placeholder="Saytınızda görünəcək əsas mətn..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;"></textarea>
-        </div>
-
-        <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #555;">Şəkil Linki (URL):</label>
-            <input type="text" id="site-image" placeholder="https://example.com/sekil.jpg" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
-        </div>
-
-        <button onclick="publishSite()" style="width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Saytı Dərc Et (Publish)</button>
-    </div>
-
-    <!-- Nəticə və Linkin Göründüyü Hissə -->
-    <div id="result-box" style="display: none; margin-top: 25px; padding: 20px; background: #e9ecef; border-radius: 8px; text-align: center;">
-        <h3 style="color: #28a745; margin-top: 0;">Saytınız uğurla dərc olundu! 🎉</h3>
-        <p>Sizin sayt linkiniz:</p>
-        <a id="generated-link" href="#" style="font-size: 18px; font-weight: bold; color: #007bff; word-break: break-all; cursor: pointer;" onclick="viewMySite(event)"></a>
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&H İletişim və Destek Portalı</title>
+    <!-- Google Identity Services (Həqiqi Google Giriş üçün) -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0b0f19;
+            color: #ffffff;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #111827;
+            border-bottom: 1px solid #1f2937;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .logo-box {
+            background-color: #2563eb;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .auth-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .auth-btn:hover {
+            background-color: #1d4ed8;
+        }
         
-        <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 6px; border: 1px dashed #ccc; text-align: left;">
-            <h4 style="margin-top: 0; color: #333;">Saytınızın Önizləməsi:</h4>
-            <h1 id="preview-title" style="font-size: 24px; color: #222;"></h1>
-            <img id="preview-image" src="" alt="" style="max-width: 100%; height: auto; border-radius: 6px; display: none; margin-bottom: 10px;">
-            <p id="preview-text" style="color: #555; line-height: 1.5;"></p>
+        /* MAVİ FONLU HİSSƏ VƏ DOWNLOAD İKONU */
+        .app-promo-banner {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #3b82f6;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .app-promo-logo {
+            background-color: #ffffff;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .download-btn {
+            background-color: #10b981;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.9)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #1f2937;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            color: #d1d5db;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .create-project-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff007f, #7928ca, #2563eb, #00f2fe);
+            background-size: 300% 300%;
+            animation: glowing 5s ease infinite;
+            box-shadow: 0 0 20px rgba(121, 40, 202, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .create-project-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.9);
+        }
+        @keyframes glowing {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .engine-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid #2563eb;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            background-color: #111827;
+            border-bottom: 1px solid #1f2937;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .stat-text {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        .brands-section {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: #0b0f19;
+        }
+        .brands-title {
+            color: #6b7280;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .brand-badge {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            padding: 10px 25px;
+            border-radius: 6px;
+            color: #9ca3af;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .services-section {
+            max-width: 1100px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .agasef-ai-card {
+            display: block;
+            background: linear-gradient(135deg, #111827, #1f2937);
+            border: 2px solid #2563eb;
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 380px;
+            text-decoration: none;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .agasef-ai-card:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+            box-shadow: 0 12px 30px rgba(96, 165, 250, 0.5);
+        }
+        .agasef-ai-logo-box {
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .agasef-ai-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: #60a5fa;
+        }
+        .agasef-ai-card p {
+            margin: 0;
+            color: #9ca3af;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .articles-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        .section-title p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #3b82f6;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: #9ca3af;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .ad-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 10px;
+        }
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 30px 20px;
+            border-top: 1px solid #1f2937;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+        .domain-notice {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid #2563eb;
+            color: #93c5fd;
+            padding: 12px 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-apk-icon {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .footer-apk-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .footer-apk-icon img:hover {
+            transform: scale(1.1);
+        }
+        .copyright {
+            color: #6b7280;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999999;
+        }
+        .modal-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .modal-box h3 {
+            margin-top: 0;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GİRİŞ MODALI -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>H&H Serverinə Giriş</h3>
+            <p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Davam etmək üçün həqiqi Google hesabınızla daxil olun:</p>
+            <div id="g_id_signin" style="display: flex; justify-content: center; margin-bottom: 15px;"></div>
+            <br>
+            <button class="close-modal" onclick="toggleAuthModal()">Pəncərəni Bağla</button>
         </div>
     </div>
-</div>
 
-<script>
-let savedSites = {};
+    <header>
+        <div class="logo-area">
+            <div class="logo-box">h</div>
+            <span>H&H İletişim və Destek Portalı</span>
+        </div>
+        <div class="header-right">
+            <div id="google_translate_element"></div>
+            <button class="auth-btn" onclick="toggleAuthModal()">Giriş Et</button>
+        </div>
+    </header>
 
-function publishSite() {
-    const username = document.getElementById('site-username').value.trim().toLowerCase();
-    const title = document.getElementById('site-title').value;
-    const text = document.getElementById('site-text').value;
-    const imageUrl = document.getElementById('site-image').value;
+    <div class="app-promo-banner">
+        <span class="app-promo-logo">H&H</span>
+        <span>Xidmətlərimizi yaxından incələmək üçün Tətbiqimizə göz atın!</span>
+        <a href="https://hhiletisim.github.io/app.apk" class="download-btn" download>
+            📥 Tətbiqi Yüklə (APK)
+        </a>
+    </div>
 
-    if (!username) {
-        alert("Zəhmət olmasa istifadəçi adı daxil edin!");
-        return;
-    }
+    <div class="hero">
+        <div class="engine-badge">H&H Mühərriki v3.5</div>
+        <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
+        <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
+        <div>
+            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">🚀 Create New Project</a>
+        </div>
+    </div>
 
-    // Server xətası olmasın deyə birbaşa saytın içində açılan etibarlı link formatı
-    const customLink = `https://hhiletisim.io/#user=${username}`;
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-text">Partnyor Studio</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">2B+</div>
+            <div class="stat-text">Aktiv Sorğu</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">70%+</div>
+            <div class="stat-text">AI Avtomatlaşdırma</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">24/7</div>
+            <div class="stat-text">Fasiləsiz Dəstək</div>
+        </div>
+    </div>
 
-    // Məlumatları yadda saxlayırıq ki, linkə basanda açılsın
-    savedSites[username] = {
-        title: title || "Başlıqsız Sayt",
-        text: text || "Mətn daxil edilməyib.",
-        image: imageUrl
-    };
+    <div class="brands-section">
+        <div class="brands-title">Bizə etibar edən nüfuzlu markalar</div>
+        <div class="brands-grid">
+            <div class="brand-badge">ZYNGU</div>
+            <div class="brand-badge">SVBO</div>
+            <div class="brand-badge">ROVIO</div>
+            <div class="brand-badge">EA GAMES</div>
+            <div class="brand-badge">UBISOFT</div>
+            <div class="brand-badge">KRAFTON</div>
+        </div>
+    </div>
 
-    // Linki ekrana çıxarmaq
-    const linkElement = document.getElementById('generated-link');
-    linkElement.href = customLink;
-    linkElement.innerText = customLink;
+    <div class="services-section">
+        <div class="section-title" style="margin-bottom: 20px;">
+            <h2>Xidmətlərimiz</h2>
+            <p>Rəsmi tərəfdaş süni intellekt xidmətimizlə tanış olun</p>
+        </div>
+        <div class="services-grid">
+            <a href="https://agasefai.github.io" target="_blank" class="agasef-ai-card">
+                <div class="agasef-ai-logo-box">Aİ</div>
+                <h3>Ağasəf Aİ</h3>
+                <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
+            </a>
+        </div>
+    </div>
 
-    // Önizləməni doldurmaq
-    document.getElementById('preview-title').innerText = savedSites[username].title;
-    document.getElementById('preview-text').innerText = savedSites[username].text;
-    
-    const imgEl = document.getElementById('preview-image');
-    if (imageUrl) {
-        imgEl.src = imageUrl;
-        imgEl.style.display = 'block';
-    } else {
-        imgEl.style.display = 'none';
-    }
+    <!-- REKLAM 1 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
 
-    // Nəticə qutusunu göstərmək
-    document.getElementById('result-box').style.display = 'block';
-    document.getElementById('result-box').scrollIntoView({ behavior: 'smooth' });
-}
+    <div class="articles-section">
+        <div class="section-title">
+            <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
+            <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
+        </div>
 
-function viewMySite(event) {
-    event.preventDefault();
-    alert("Saytınız aktivdir və yuxarıdakı önizləmə panelində göstərilir!");
-}
-</script>
+        <div class="grid">
+            <div class="card">
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+            </div>
+            <div class="card">
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
+            </div>
+            <div class="card">
+                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+            </div>
+            <div class="card">
+                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 2 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <div class="articles-section" style="margin-top: 0;">
+        <div class="grid">
+            <div class="card">
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+            </div>
+            <div class="card">
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+            </div>
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+            </div>
+            <div class="card">
+                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
+                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 3 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <!-- REKLAM 4 (A-Ads 2454598) -->
+    <div class="ad-container">
+        <!-- BEGIN AADS AD UNIT 2454598 -->
+        <div id="frame" style="width: 100%;margin: auto;position: relative; z-index: 99998;">
+          <iframe data-aa='2454598' src='//acceptable.a-ads.com/2454598/?size=Adaptive'
+                            style='border:0; padding:0; width:70%; height:auto; overflow:hidden;display: block;margin: auto'></iframe>
+        </div>
+        <!-- END AADS AD UNIT 2454598 -->
+    </div>
+
+    <!-- HƏQİQİ İŞLƏK VƏB-SAYT YARADICI MODULU (4-cü Reklamın Tam Altında) -->
+    <div id="real-website-builder" style="max-width: 800px; margin: 40px auto; padding: 30px; background: #111827; border: 2px solid #2563eb; border-radius: 12px; box-s
