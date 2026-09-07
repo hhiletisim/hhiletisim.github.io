@@ -13,31 +13,6 @@
             background-color: #0b0f19;
             color: #ffffff;
         }
-        /* Sonsuz Hərəkət Edən Yazı (Marquee) Stili */
-        .ticker-container {
-            background-color: #2563eb;
-            color: #ffffff;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            width: 100%;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            font-size: 14px;
-            border-bottom: 1px solid #1d4ed8;
-        }
-        .ticker-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 15s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -150,17 +125,11 @@
             line-height: 1.6;
             font-size: 16px;
         }
-        .hero-buttons-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 25px;
-        }
         .create-project-btn {
             display: inline-block;
-            padding: 14px 30px;
-            font-size: 16px;
+            margin-top: 25px;
+            padding: 15px 35px;
+            font-size: 18px;
             font-weight: bold;
             color: #ffffff;
             text-decoration: none;
@@ -170,8 +139,6 @@
             animation: glowing 5s ease infinite;
             box-shadow: 0 0 20px rgba(121, 40, 202, 0.6);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-align: center;
-            min-width: 320px;
         }
         .create-project-btn:hover {
             transform: scale(1.05);
@@ -332,8 +299,6 @@
             font-size: 14px;
             line-height: 1.5;
         }
-        
-        /* Məqalələr Bölməsi və Like/Dislike Stili */
         .articles-section {
             max-width: 1100px;
             margin: 40px auto;
@@ -362,9 +327,6 @@
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         .card h3 {
             margin-top: 0;
@@ -376,33 +338,8 @@
             color: #9ca3af;
             font-size: 14px;
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        .reaction-bar {
-            display: flex;
-            gap: 15px;
-            border-top: 1px solid #1f2937;
-            padding-top: 12px;
-        }
-        .reaction-btn {
-            background: #1f2937;
-            border: none;
-            color: #d1d5db;
-            padding: 6px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: background-color 0.2s, color 0.2s;
-        }
-        .reaction-btn:hover {
-            background-color: #374151;
-            color: #ffffff;
-        }
-
         .ad-container {
             text-align: center;
             margin: 30px 0;
@@ -414,7 +351,6 @@
             padding: 30px 20px;
             border-top: 1px solid #1f2937;
             text-align: center;
-            margin-bottom: 60px;
         }
         .domain-notice {
             background: rgba(37, 99, 235, 0.15);
@@ -431,23 +367,6 @@
             justify-content: center;
             gap: 10px;
         }
-        .footer-links-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            font-size: 13px;
-        }
-        .footer-links-bar a, .footer-links-bar span {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links-bar a:hover {
-            color: #60a5fa;
-        }
         .footer-apk-icon {
             display: inline-block;
             margin-bottom: 15px;
@@ -462,43 +381,6 @@
         .footer-apk-icon img:hover {
             transform: scale(1.1);
         }
-        /* Cookie Banner Stili */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #111827;
-            border-top: 1px solid #2563eb;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
-            z-index: 999999;
-            box-sizing: border-box;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .cookie-text {
-            color: #d1d5db;
-            font-size: 14px;
-            margin: 0;
-        }
-        .cookie-btn {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 13px;
-            transition: background-color 0.2s;
-        }
-        .cookie-btn:hover {
-            background-color: #1d4ed8;
-        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 26px;
@@ -507,11 +389,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Sonsuz Hərəkət Edən Yazı (Ticker) -->
-    <div class="ticker-container">
-        <div class="ticker-text">H&H Console developer'de clife id alın! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H&H Console developer'de clife id alın!</div>
-    </div>
 
     <header>
         <div class="logo-area">
@@ -548,12 +425,8 @@
         <div class="engine-badge">H&H Mühərriki v3.5</div>
         <h1>H&H Mühərriki ilə öz App'inizi yaradın</h1>
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
-        
-        <div class="hero-buttons-container">
-            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">Create new apps</a>
-            <a href="https://hhiletisim.github.io/app.apk" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #10b981, #059669, #3b82f6);">Create new apps (plus) skretvhware pro</a>
-            <a href="https://sites.google.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #f59e0b, #d97706, #ef4444);">Create new web sites</a>
-            <a href="https://www.canva.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #8b5cf6, #6d28d9, #ec4899);">Create new web site (plus) buisnes</a>
+        <div>
+            <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn">🚀 Create New Project</a>
         </div>
     </div>
 
@@ -601,7 +474,7 @@
                 <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
             </a>
 
-            <!-- Uğurlarımız Kvadrat Kartı -->
+            <!-- Yeni Sürüşdürülə Bilən Uğurlarımız Kvadrat Kartı -->
             <div class="success-square-card">
                 <div class="success-logo-box">🏆</div>
                 <h3>Uğurlarımız↓</h3>
@@ -610,5 +483,80 @@
         </div>
     </div>
 
-    <!-- ----------------------------------------- -->
-    <!-- AĞAŞƏF Aİ VƏ DİGƏR Aİ MƏQALƏL
+    <!-- REKLAM 1 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <div class="articles-section">
+        <div class="section-title">
+            <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
+            <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+            </div>
+            <div class="card">
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
+            </div>
+            <div class="card">
+                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+            </div>
+            <div class="card">
+                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 2 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <div class="articles-section" style="margin-top: 0;">
+        <div class="grid">
+            <div class="card">
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+            </div>
+            <div class="card">
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+            </div>
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+            </div>
+            <div class="card">
+                <h3>8. İstifadəçi Təcrübəsi (UX) və Çoxdilli Dəstək</h3>
+                <p>Portalımız qlobal istifadəçi kütləsi üçün tənzimlənmiş görünüşdədir. Quraşdırılmış Google Translate modulumuz sayəsində platformanı istənilən dildə istifadə edə bilərsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 3 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <!-- REKLAM 4 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
+          <iframe data-aa='2454598' src='//acceptable.a-ads.com/2454598/?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="doma
