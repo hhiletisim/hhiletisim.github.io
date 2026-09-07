@@ -221,9 +221,13 @@
         .services-grid {
             display: flex;
             justify-content: center;
+            gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
-        .agasef-ai-card {
+        .agasef-ai-card, .success-square-card {
             display: block;
             background: linear-gradient(135deg, #111827, #1f2937);
             border: 2px solid #2563eb;
@@ -231,15 +235,27 @@
             padding: 40px 30px;
             width: 100%;
             max-width: 380px;
+            min-height: 220px;
             text-decoration: none;
             color: #ffffff;
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .success-square-card {
+            border-color: #10b981;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
         }
         .agasef-ai-card:hover {
             transform: translateY(-5px);
             border-color: #60a5fa;
             box-shadow: 0 12px 30px rgba(96, 165, 250, 0.5);
+        }
+        .success-square-card:hover {
+            transform: translateY(-5px);
+            border-color: #34d399;
+            box-shadow: 0 12px 30px rgba(52, 211, 153, 0.5);
         }
         .agasef-ai-logo-box {
             background: #2563eb;
@@ -248,19 +264,36 @@
             font-weight: bold;
             width: 70px;
             height: 70px;
-            margin: 0 auto 20px auto;
+            margin: 0 0 20px 0;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 14px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .agasef-ai-card h3 {
+        .success-logo-box {
+            background: #10b981;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            width: 70px;
+            height: 70px;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .agasef-ai-card h3, .success-square-card h3 {
             margin: 0 0 10px 0;
             font-size: 22px;
             color: #60a5fa;
         }
-        .agasef-ai-card p {
+        .success-square-card h3 {
+            color: #34d399;
+        }
+        .agasef-ai-card p, .success-square-card p {
             margin: 0;
             color: #9ca3af;
             font-size: 14px;
@@ -431,14 +464,22 @@
     <div class="services-section">
         <div class="section-title" style="margin-bottom: 20px;">
             <h2>Xidmətlərimiz</h2>
-            <p>Rəsmi tərəfdaş süni intellekt xidmətimizlə tanış olun</p>
+            <p>Rəsmi tərəfdaş süni intellekt xidmətimiz və nailiyyətlərimiz</p>
         </div>
         <div class="services-grid">
+            <!-- Ağasəf AI Kartı -->
             <a href="https://agasefai.github.io" target="_blank" class="agasef-ai-card">
                 <div class="agasef-ai-logo-box">Aİ</div>
                 <h3>Ağasəf Aİ</h3>
                 <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
             </a>
+
+            <!-- Yeni Sürüşdürülə Bilən Uğurlarımız Kvadrat Kartı -->
+            <div class="success-square-card">
+                <div class="success-logo-box">🏆</div>
+                <h3>Uğurlarımız↓</h3>
+                <p>H&H platformasının qlobal miqyasda əldə etdiyi nailiyyətlər və inkişaf göstəriciləri.</p>
+            </div>
         </div>
     </div>
 
@@ -518,15 +559,4 @@
     </div>
 
     <footer>
-        <div class="domain-notice">
-            🌐 H&H Console developer'de kendi sitenize üzcretsiz domain kullanın!
-        </div>
-
-        <a href="https://hhiletisim.github.io/app.apk" class="footer-apk-icon" download title="Faylı endir">
-            <img src="https://api.iconify.design/lucide:file-code.svg?color=%2360a5fa" alt="H&H Earning APK Logo">
-        </a>
-    </footer>
-
-</body>
-    </html>
-    
+        <div class="doma
