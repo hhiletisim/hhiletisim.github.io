@@ -569,3 +569,107 @@
 
     <!-- HƏQİQİ İŞLƏK VƏB-SAYT YARADICI MODULU (4-cü Reklamın Tam Altında) -->
     <div id="real-website-builder" style="max-width: 800px; margin: 40px auto; padding: 30px; background: #111827; border: 2px solid #2563eb; border-radius: 12px; box-s
+<!-- HƏQİQİ İŞLƏK VƏB-SAYT YARADICI MODULU -->
+<div id="real-website-builder" style="max-width: 800px; margin: 40px auto; padding: 30px; background: #111827; border: 2px solid #2563eb; border-radius: 12px; box-shadow: 0 8px 25px rgba(37,99,235,0.3); font-family: Arial, sans-serif; color: #ffffff;">
+    <h2 style="color: #60a5fa; text-align: center; margin-bottom: 10px;">H&H Veb-Sayt Qurucusu</h2>
+    <p style="color: #9ca3af; text-align: center; font-size: 14px; margin-bottom: 25px;">Öz mətn və şəkillərinizi daxil edərək şəxsi səhifənizi dərhal yaradın və linkini əldə edin!</p>
+    
+    <div id="builder-form-box">
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #93c5fd;">İstifadəçi Adınız (Link üçün):</label>
+            <input type="text" id="custom-user" placeholder="məsələn: elgun" style="width: 100%; padding: 12px; background: #0b0f19; border: 1px solid #1f2937; color: white; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #93c5fd;">Saytın Başlığı:</label>
+            <input type="text" id="custom-title" placeholder="Məsələn: Mənim Layihəm" style="width: 100%; padding: 12px; background: #0b0f19; border: 1px solid #1f2937; color: white; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #93c5fd;">Saytın Mətni / Haqqında:</label>
+            <textarea id="custom-text" rows="4" placeholder="Saytınızda oxunulacaq əsas məlumat..." style="width: 100%; padding: 12px; background: #0b0f19; border: 1px solid #1f2937; color: white; border-radius: 6px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #93c5fd;">Şəkil Linki (URL):</label>
+            <input type="text" id="custom-img" placeholder="https://example.com/image.jpg" style="width: 100%; padding: 12px; background: #0b0f19; border: 1px solid #1f2937; color: white; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <button onclick="generateUserSite()" style="width: 100%; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; padding: 14px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(37,99,235,0.4);">Saytı Dərc Et və Link Al</button>
+    </div>
+
+    <!-- Yaranmış Həqiqi Sayt Görünüşü -->
+    <div id="dynamic-site-output" style="display: none; margin-top: 30px; padding: 25px; background: #0b0f19; border: 1px solid #2563eb; border-radius: 8px;">
+        <h3 style="color: #10b981; margin-top: 0; text-align: center;">Saytınız uğurla hazırdır! 🚀</h3>
+        <p style="color: #9ca3af; text-align: center; font-size: 13px;">Səhifənizin xüsusi keçid linki:</p>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a id="final-share-link" href="#" target="_blank" style="font-size: 16px; font-weight: bold; color: #60a5fa; word-break: break-all;"></a>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid #1f2937; margin: 20px 0;">
+
+        <div style="text-align: center;">
+            <h1 id="out-title" style="color: #ffffff; font-size: 28px; margin-bottom: 15px;"></h1>
+            <img id="out-img" src="" alt="" style="max-width: 100%; max-height: 300px; border-radius: 8px; display: none; margin: 0 auto 15px auto; border: 1px solid #1f2937;">
+            <p id="out-text" style="color: #d1d5db; line-height: 1.6; font-size: 15px;"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+function generateUserSite() {
+    const user = document.getElementById('custom-user').value.trim().toLowerCase();
+    const title = document.getElementById('custom-title').value;
+    const text = document.getElementById('custom-text').value;
+    const img = document.getElementById('custom-img').value;
+
+    if (!user) {
+        alert("Zəhmət olmasa istifadəçi adı daxil edin!");
+        return;
+    }
+
+    const siteData = { title: title || "Adsız Sayt", text: text || "", img: img };
+    localStorage.setItem("site_" + user, JSON.stringify(siteData));
+
+    const fullLink = window.location.origin + window.location.pathname + "#user=" + user;
+    
+    const linkElem = document.getElementById('final-share-link');
+    linkElem.href = fullLink;
+    linkElem.innerText = fullLink;
+
+    document.getElementById('out-title').innerText = siteData.title;
+    document.getElementById('out-text').innerText = siteData.text;
+    if (img) {
+        const imgElem = document.getElementById('out-img');
+        imgElem.src = img;
+        imgElem.style.display = 'block';
+    }
+
+    document.getElementById('dynamic-site-output').style.display = 'block';
+    document.getElementById('dynamic-site-output').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Səhifə açıldıqda linkdə istifadəçi olub olmadığını yoxlayan hissə
+window.addEventListener('load', function() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#user=")) {
+        const username = hash.replace("#user=", "");
+        const savedData = localStorage.getItem("site_" + username);
+        if (savedData) {
+            const siteInfo = JSON.parse(savedData);
+            document.getElementById('out-title').innerText = siteInfo.title;
+            document.getElementById('out-text').innerText = siteInfo.text;
+            if (siteInfo.img) {
+                const imgElem = document.getElementById('out-img');
+                imgElem.src = siteInfo.img;
+                imgElem.style.display = 'block';
+            }
+            if(document.getElementById('builder-form-box')) {
+                document.getElementById('builder-form-box').style.display = 'none';
+            }
+            document.getElementById('dynamic-site-output').style.display = 'block';
+            document.getElementById('dynamic-site-output').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
+</script>
