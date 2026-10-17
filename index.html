@@ -41,54 +41,7 @@
             align-items: center;
             gap: 15px;
             flex-wrap: wrap;
-            position: relative;
         }
-        .menu-btn {
-            background-color: #1f2937;
-            color: #ffffff;
-            border: 1px solid #374151;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s;
-        }
-        .menu-btn:hover {
-            background-color: #374151;
-        }
-        /* Dropdown Menu */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            z-index: 100000;
-            width: 200px;
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 15px;
-            color: #d1d5db;
-            text-decoration: none;
-            font-size: 14px;
-            border-bottom: 1px solid #1f2937;
-            transition: background 0.2s, color 0.2s;
-        }
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-        .dropdown-menu a:hover {
-            background-color: #1f2937;
-            color: #ffffff;
-        }
-
         .auth-btn {
             background-color: #ffffff;
             color: #374151;
@@ -391,7 +344,6 @@
             text-align: center;
             margin: 30px 0;
             padding: 10px;
-            min-height: 100px;
         }
         footer {
             background-color: #111827;
@@ -399,87 +351,7 @@
             padding: 30px 20px;
             border-top: 1px solid #1f2937;
             text-align: center;
-            position: relative;
         }
-        /* Support Bot Widget */
-        .support-bot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99999;
-        }
-        .support-bot-btn {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37,99,235,0.4);
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-        .support-bot-btn:hover {
-            transform: scale(1.1);
-        }
-        .support-chat-box {
-            display: none;
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 300px;
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-        .chat-header {
-            background-color: #2563eb;
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .chat-body {
-            padding: 15px;
-            height: 200px;
-            overflow-y: auto;
-            font-size: 13px;
-            color: #d1d5db;
-        }
-        .chat-footer {
-            padding: 10px;
-            border-top: 1px solid #1f2937;
-            display: flex;
-            gap: 5px;
-        }
-        .chat-footer input {
-            flex: 1;
-            background: #0b0f19;
-            border: 1px solid #1f2937;
-            color: white;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-        .chat-footer button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
         .domain-notice {
             background: rgba(37, 99, 235, 0.15);
             border: 1px solid #2563eb;
@@ -494,6 +366,20 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+        }
+        .footer-apk-icon {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .footer-apk-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .footer-apk-icon img:hover {
+            transform: scale(1.1);
         }
         @media (max-width: 768px) {
             .hero h1 {
@@ -510,16 +396,6 @@
             <span>H&H İletişim və Destek Portalı</span>
         </div>
         <div class="header-right">
-            <!-- Üç xətt menyu düyməsi -->
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            <div id="dropdownMenu" class="dropdown-menu">
-                <a href="#settings">Ayarlar</a>
-                <a href="#support">Dəstək</a>
-                <a href="#contact">İletişim</a>
-                <a href="#history">Tarixçəm</a>
-                <a href="#premium">Premium Üzv</a>
-            </div>
-
             <!-- Google Translate Vidjeti -->
             <div id="google_translate_element"></div>
             <script type="text/javascript">
@@ -527,7 +403,7 @@
                     new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
                 }
             </script>
-            <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
             <!-- Google Loqolu Ağ Giriş Et Düyməsi -->
             <a href="https://accounts.google.com/" target="_blank" class="auth-btn">
@@ -536,28 +412,6 @@
             </a>
         </div>
     </header>
-
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("dropdownMenu");
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-btn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
 
     <div class="app-promo-banner">
         <span class="app-promo-logo">H&H Earning</span>
@@ -611,4 +465,86 @@
         <div class="brands-grid">
             <div class="brand-badge">ZYNGU</div>
             <div class="brand-badge">SVBO</div>
-            <div cl
+            <div class="brand-badge">ROVIO</div>
+            <div class="brand-badge">EA GAMES</div>
+            <div class="brand-badge">UBISOFT</div>
+            <div class="brand-badge">KRAFTON</div>
+        </div>
+    </div>
+
+    <div class="services-section">
+        <div class="section-title" style="margin-bottom: 20px;">
+            <h2>Xidmətlərimiz</h2>
+            <p>Rəsmi tərəfdaş süni intellekt xidmətimiz və nailiyyətlərimiz</p>
+        </div>
+        <div class="services-grid">
+            <!-- Ağasəf AI Kartı -->
+            <a href="https://agasefai.github.io" target="_blank" class="agasef-ai-card">
+                <div class="agasef-ai-logo-box">Aİ</div>
+                <h3>Ağasəf Aİ</h3>
+                <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
+            </a>
+
+            <!-- Yeni Sürüşdürülə Bilən Uğurlarımız Kvadrat Kartı -->
+            <div class="success-square-card">
+                <div class="success-logo-box">🏆</div>
+                <h3>Uğurlarımız↓</h3>
+                <p>H&H platformasının qlobal miqyasda əldə etdiyi nailiyyətlər və inkişaf göstəriciləri.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 1 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <div class="articles-section">
+        <div class="section-title">
+            <h2>Məxfilik, Texnologiya və Dəstək Məqalələri</h2>
+            <p>H&H platformasının texnoloji strukturu, təhlükəsizlik standartları və AI sistemləri haqqında geniş məlumat bankı</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>1. Şəxsi Məlumatların Qorunması Siyasəti (GDPR & KVKK)</h3>
+                <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
+            </div>
+            <div class="card">
+                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
+                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
+            </div>
+            <div class="card">
+                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
+                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
+            </div>
+            <div class="card">
+                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
+                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REKLAM 2 -->
+    <div class="ad-container">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
+        </div>
+    </div>
+
+    <div class="articles-section" style="margin-top: 0;">
+        <div class="grid">
+            <div class="card">
+                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
+                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
+            </div>
+            <div class="card">
+                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
+                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
+            </div>
+            <div class="card">
+                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
+                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
+            <
