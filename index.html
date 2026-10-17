@@ -7,6 +7,69 @@
     <!-- Google Identity Services -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
+        /* === SPLASH SCREEN (Yükləmə Ekranı) Stili === */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            transition: opacity 0.5s ease;
+        }
+        .splash-logo {
+            background-color: #2563eb;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            margin-bottom: 25px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .progress-bar-container {
+            width: 260px;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #7928ca);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .splash-footer-text {
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif, Arial;
+            font-size: 13px;
+            font-weight: bold;
+            color: #6b7280;
+            letter-spacing: 1.5px;
+            text-transform: lowercase;
+            background: #f3f4f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* === ƏSAS SAYT STİLLƏRİ === */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -352,35 +415,6 @@
             border-top: 1px solid #1f2937;
             text-align: center;
         }
-        .domain-notice {
-            background: rgba(37, 99, 235, 0.15);
-            border: 1px solid #2563eb;
-            color: #93c5fd;
-            padding: 12px 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            font-size: 13px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .footer-apk-icon {
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .footer-apk-icon img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
-        }
-        .footer-apk-icon img:hover {
-            transform: scale(1.1);
-        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 26px;
@@ -390,6 +424,41 @@
 </head>
 <body>
 
+    <!-- GÖZLƏMƏ / YÜKLƏMƏ EKRANI (SPLASH SCREEN) -->
+    <div id="splash-screen">
+        <div class="splash-logo">h</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="splash-footer-text">powered by: client id</div>
+    </div>
+
+    <!-- SCRIPT: 10 Saniyəlik Gözləmə Çubuğu -->
+    <script>
+        let duration = 10000; // 10 saniyə (milisaniyə ilə)
+        let intervalTime = 100; // Hər 0.1 saniyədən bir yenilənir
+        let elapsedTime = 0;
+        let progressBar = document.getElementById("progressBar");
+        let splashScreen = document.getElementById("splash-screen");
+
+        let timer = setInterval(function() {
+            elapsedTime += intervalTime;
+            let percentage = (elapsedTime / duration) * 100;
+            if (percentage > 100) percentage = 100;
+            
+            progressBar.style.width = percentage + "%";
+
+            if (elapsedTime >= duration) {
+                clearInterval(timer);
+                splashScreen.style.opacity = "0";
+                setTimeout(function() {
+                    splashScreen.style.display = "none";
+                }, 500); // Fade-out effekti bitəndə tamamilə yoxa çıxır
+            }
+        }, intervalTime);
+    </script>
+
+    <!-- ƏSAS HEADER -->
     <header>
         <div class="logo-area">
             <div class="logo-box">h</div>
@@ -405,7 +474,7 @@
             </script>
             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            <!-- Google Loqolu Ağ Giriş Et Düyməsi -->
+            <!-- Google Loqolu Giriş Et Düyməsi -->
             <a href="https://accounts.google.com/" target="_blank" class="auth-btn">
                 <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google Logo">
                 Giriş Et
@@ -427,16 +496,9 @@
         <p>H&H İletişim və Destek Portalı texnologiya, Ağaşaf AI süni intellekt köməkçisi və canlı dəstək xidmətlərini bir araya gətirərək istifadəçilərinə anında, təhlükəsiz və fasiləsiz köməklik göstərir.</p>
         
         <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px;">
-            <!-- 1. MIT App Inventor -->
             <a href="https://ai2.appinventor.mit.edu/" target="_blank" class="create-project-btn" style="margin-top: 0;">🚀 Create New Project</a>
-            
-            <!-- 2. Canva (Create new web site premium) -->
             <a href="https://www.canva.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #00c4cc, #7928ca, #ff007f); box-shadow: 0 0 20px rgba(0, 196, 204, 0.6); margin-top: 0;">✨ Create new web site premium</a>
-
-            <!-- 3. Google Sites (Create new web site) -->
             <a href="https://sites.google.com/" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05); box-shadow: 0 0 20px rgba(66, 133, 244, 0.6); margin-top: 0;">🌐 Create new web site</a>
-
-            <!-- 4. Sketchware Pro (Create your apps) -->
             <a href="https://sketchware-pro.en.uptodown.com/android" target="_blank" class="create-project-btn" style="background: linear-gradient(45deg, #ff8000, #ff5e00, #ff0055); box-shadow: 0 0 20px rgba(255, 128, 0, 0.6); margin-top: 0;">📱 Create your apps</a>
         </div>
     </div>
@@ -478,14 +540,12 @@
             <p>Rəsmi tərəfdaş süni intellekt xidmətimiz və nailiyyətlərimiz</p>
         </div>
         <div class="services-grid">
-            <!-- Ağasəf AI Kartı -->
             <a href="https://agasefai.github.io" target="_blank" class="agasef-ai-card">
                 <div class="agasef-ai-logo-box">Aİ</div>
                 <h3>Ağasəf Aİ</h3>
                 <p>Qabaqcıl süni intellekt dəstəyi və ağıllı köməkçi xidmətlərinə keçid etmək üçün toxunulun.</p>
             </a>
 
-            <!-- Yeni Sürüşdürülə Bilən Uğurlarımız Kvadrat Kartı -->
             <div class="success-square-card">
                 <div class="success-logo-box">🏆</div>
                 <h3>Uğurlarımız↓</h3>
@@ -496,7 +556,7 @@
 
     <!-- REKLAM 1 -->
     <div class="ad-container">
-        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 9999;">
         <iframe data-aa='2454527' src='//acceptable.a-ads.com/2454527?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
         </div>
     </div>
@@ -513,38 +573,4 @@
                 <p>H&H İletişim və Destek Portalı istifadəçilərinin məxfilik hüquqlarını ən yüksək səviyyədə qoruyur. Səhifəmiz üzərindən toplanan bütün şəxsi məlumatlar, şifrələnmiş serverlərimizdə 256-bit AES standartlarına uyğun şəkildə saxlanılır.</p>
             </div>
             <div class="card">
-                <h3>2. H&H ID və İki Mərhələli Doğrulama (2FA)</h3>
-                <p>Hesabınızın təhlükəsizliyini təmin etmək üçün H&H ID sistemindən istifadə olunur. Giriş zamanı iki mərhələli doğrulama (2FA) parametrini aktivləşdirərək hesabınızı qoruya bilərsiniz.</p>
-            </div>
-            <div class="card">
-                <h3>3. H&H AI (Ağaşaf AI) İnteqrasiyası və İş prinsipi</h3>
-                <p>Canlı dəstək çatbotumuz Ağaşaf AI texnologiyasına əsaslanır. Ağaşaf AI istifadəçinin verdiyi sualları anında analiz edərək ən uyğun həll yollarını təqdim edir.</p>
-            </div>
-            <div class="card">
-                <h3>4. Uğursuz Tranzaksiyalar və Geri Ödəmə Qaydaları</h3>
-                <p>Balansa yükləmə və ya oyun daxili almalar zamanı baş verən hər hansı texniki gecikmələr sistemimiz tərəfindən avtomatik təsbit edilir.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- REKLAM 2 -->
-    <div class="ad-container">
-        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99999;">
-        <iframe data-aa='2454519' src='//acceptable.a-ads.com/2454519?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin: auto;'></iframe>
-        </div>
-    </div>
-
-    <div class="articles-section" style="margin-top: 0;">
-        <div class="grid">
-            <div class="card">
-                <h3>5. H&H Mühərriki v3.5: Mobil və Web İnteqrasiyası</h3>
-                <p>H&H Mühərriki tərtibatçılara öz mobil tətbiqlərini və veb sistemlərini sıfırdan yaratmağa imkan verən innovativ çərçivədir (framework).</p>
-            </div>
-            <div class="card">
-                <h3>6. Kibertəhlükəsizlik və DDoS Müdafiə İnfrastrukturu</h3>
-                <p>Serverlərimiz günün 24 saatı fasiləsiz olaraq avtomatlaşdırılmış DDoS hücum müdafiə filtrasiyasından keçir.</p>
-            </div>
-            <div class="card">
-                <h3>7. Bulud Texnologiyaları və Yüksək Əlçatanlıq (High Availability)</h3>
-                <p>H&H altyapısı dünyanın müxtəlif nöqtələrində yerləşən paylanmış bulud serverləri üzərində fəaliyyət göstərir.</p>
-            <
+                <h3>2. H&H ID və
