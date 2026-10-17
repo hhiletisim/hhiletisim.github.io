@@ -41,6 +41,7 @@
             align-items: center;
             gap: 15px;
             flex-wrap: wrap;
+            position: relative;
         }
         .menu-btn {
             background-color: #1f2937;
@@ -62,8 +63,8 @@
         .dropdown-menu {
             display: none;
             position: absolute;
-            top: 70px;
-            right: 30px;
+            top: 50px;
+            right: 0;
             background-color: #111827;
             border: 1px solid #1f2937;
             border-radius: 8px;
@@ -390,6 +391,7 @@
             text-align: center;
             margin: 30px 0;
             padding: 10px;
+            min-height: 100px;
         }
         footer {
             background-color: #111827;
@@ -507,7 +509,7 @@
             <div class="logo-box">h</div>
             <span>H&H İletişim və Destek Portalı</span>
         </div>
-        <div class="header-right" style="position: relative;">
+        <div class="header-right">
             <!-- Üç xətt menyu düyməsi -->
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div id="dropdownMenu" class="dropdown-menu">
@@ -525,7 +527,7 @@
                     new google.translate.TranslateElement({pageLanguage: 'az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
                 }
             </script>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
             <!-- Google Loqolu Ağ Giriş Et Düyməsi -->
             <a href="https://accounts.google.com/" target="_blank" class="auth-btn">
@@ -609,5 +611,4 @@
         <div class="brands-grid">
             <div class="brand-badge">ZYNGU</div>
             <div class="brand-badge">SVBO</div>
-            <div class="brand-badge">ROVIO</div>
-        
+            <div cl
