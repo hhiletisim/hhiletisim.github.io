@@ -12,15 +12,15 @@
             --btn-gray: #e5e5e5;
             --btn-gray-dark: #cdcdcd;
             --text-color: #4b4b4b;
-            --card-border: #e5e5e5;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Feather', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -33,12 +33,13 @@
             padding: 20px;
         }
 
+        /* Masaüstü və Mobil üçün Kart Dizaynı */
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             background: #ffffff;
             border-radius: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
             padding: 24px;
             min-height: 580px;
             display: flex;
@@ -49,7 +50,6 @@
             border: 2px solid #e5e5e5;
         }
 
-        /* Yuxarı X düyməsi */
         .close-btn {
             font-size: 24px;
             color: #afafaf;
@@ -60,8 +60,10 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            transition: background 0.2s;
+            z-index: 10;
+            align-self: flex-end;
         }
+
         .close-btn:hover {
             background: #f1f1f1;
         }
@@ -70,23 +72,21 @@
         .robot-section {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 14px;
+            margin-top: 5px;
             margin-bottom: 20px;
         }
 
         .robot-container {
             width: 110px;
-            height: 120px;
+            height: 115px;
             flex-shrink: 0;
             position: relative;
         }
 
-        /* SVG Robot Stili */
         .robot-svg {
             width: 100%;
             height: 100%;
-            transition: transform 0.3s ease;
         }
 
         .writing-animation .arm-pen {
@@ -109,17 +109,22 @@
             100% { transform: rotate(5deg); }
         }
 
+        .speech-bubble-wrapper {
+            position: relative;
+            flex-grow: 1;
+        }
+
         .speech-bubble {
             position: relative;
             background: #ffffff;
             border: 2px solid #e5e5e5;
             border-radius: 18px;
             padding: 16px;
-            font-size: 18px;
+            padding-right: 34px;
+            font-size: 16px;
             font-weight: 700;
             line-height: 1.4;
             color: #4b4b4b;
-            flex-grow: 1;
             box-shadow: 0 4px 0 #e5e5e5;
         }
 
@@ -127,74 +132,189 @@
             content: '';
             position: absolute;
             left: -12px;
-            top: 25px;
+            top: 20px;
             border-width: 8px 12px 8px 0;
             border-style: solid;
             border-color: transparent #e5e5e5 transparent transparent;
-            display: block;
-            width: 0;
         }
 
         .speech-bubble::after {
             content: '';
             position: absolute;
             left: -9px;
-            top: 26px;
+            top: 21px;
             border-width: 7px 10px 7px 0;
             border-style: solid;
             border-color: transparent #ffffff transparent transparent;
-            display: block;
-            width: 0;
+        }
+
+        /* 3 Nöqtə Düyməsi və Menyu */
+        .dots-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #a0a0a0;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 50%;
+            line-height: 1;
+            z-index: 5;
+        }
+
+        .dots-btn:hover {
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        .report-menu {
+            display: none;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            background: #ffffff;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            z-index: 20;
+            overflow: hidden;
+            width: 170px;
+        }
+
+        .report-menu-item {
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #ef4444;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .report-menu-item:hover {
+            background: #fef2f2;
+        }
+
+        /* Modal (Şikayət Pəncərəsi) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .modal-textarea {
+            width: 100%;
+            height: 90px;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+            margin-bottom: 12px;
+        }
+
+        .modal-textarea:focus {
+            border-color: #1cb0f6;
+        }
+
+        .modal-send-btn {
+            width: 100%;
+            background: #1cb0f6;
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .modal-close-x {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 15px;
+            font-weight: bold;
+            color: #16a34a;
         }
 
         /* Variantlar Siyahısı */
         .options-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-            max-height: 320px;
+            gap: 10px;
+            margin-bottom: 15px;
+            max-height: 280px;
             overflow-y: auto;
             padding-right: 4px;
         }
 
-        /* Duolingo Stilli Düymə */
         .option-btn {
             background: #ffffff;
             border: 2px solid var(--btn-gray-dark);
             border-bottom-width: 5px;
             border-radius: 16px;
-            padding: 14px 18px;
-            font-size: 16px;
+            padding: 13px 18px;
+            font-size: 15px;
             font-weight: 700;
             color: #4b4b4b;
             text-align: left;
             cursor: pointer;
-            transition: all 0.1s ease;
+            outline: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .option-btn:hover {
-            background: #f7f7f7;
+            width: 100%;
         }
 
         .option-btn:active, .option-btn.selected {
             border-bottom-width: 2px;
             transform: translateY(3px);
-        }
-
-        .option-btn.selected {
             border-color: var(--primary-blue-dark);
             background: #ddf4ff;
             color: #1899d6;
         }
 
-        /* Aşağı Təsdiq Paneli */
         .footer-action {
             border-top: 2px solid #f1f1f1;
-            padding-top: 15px;
+            padding-top: 14px;
         }
 
         .submit-btn {
@@ -210,16 +330,7 @@
             letter-spacing: 0.8px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.1s;
-        }
-
-        .submit-btn:hover {
-            filter: brightness(1.05);
-        }
-
-        .submit-btn:active {
-            border-bottom-width: 0px;
-            transform: translateY(5px);
+            outline: none;
         }
 
         .submit-btn:disabled {
@@ -230,7 +341,6 @@
             transform: none;
         }
 
-        /* Ekran Keçidləri */
         .screen {
             display: none;
             height: 100%;
@@ -242,22 +352,23 @@
             display: flex;
         }
 
-        /* Yüklənmə Ekranı */
+        /* YÜKLƏNMƏ EKRANI - Loqo Tam Ortada */
         .loading-screen {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            min-height: 480px;
             text-align: center;
             padding: 20px 0;
+            width: 100%;
         }
 
         .hh-logo {
-            width: 90px;
-            height: 90px;
+            width: 95px;
+            height: 95px;
             background: linear-gradient(135deg, #1cb0f6, #0077ff);
-            border-radius: 22px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -283,11 +394,11 @@
 
         .progress-bar-container {
             width: 100%;
+            max-width: 320px;
             height: 16px;
             background: #e5e5e5;
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-bar {
@@ -295,53 +406,70 @@
             height: 100%;
             background: #1cb0f6;
             border-radius: 10px;
-            transition: width 0.1s linear;
+            transition: width 0.05s linear;
         }
 
-        /* Lobi Ekranı */
+        /* LOBİ EKRANI */
         .lobby-screen {
             text-align: center;
-            padding: 10px 0;
         }
 
         .lobby-card {
             background: #fff8e7;
             border: 2px solid #ffd56b;
             border-radius: 16px;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 16px;
+            margin-top: 12px;
             text-align: left;
         }
 
         .lobby-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             color: #d97706;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: 8px;
         }
 
         .lobby-desc {
-            font-size: 15px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.4;
             color: #6b7280;
         }
 
-        .qr-placeholder {
-            margin: 20px auto;
-            width: 140px;
-            height: 140px;
-            border: 2px dashed #bbb;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 12px;
-            background: #fafafa;
+        .brawl-box {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .brawl-text {
+            font-size: 15px;
+            font-weight: 800;
+            color: #15803d;
+            margin-bottom: 12px;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background: #22c55e;
+            border: none;
+            border-bottom: 4px solid #15803d;
+            border-radius: 14px;
+            padding: 12px 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: 900;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .play-btn:active {
+            border-bottom-width: 0px;
+            transform: translateY(4px);
         }
 
         .player-badge {
@@ -352,79 +480,69 @@
             border-radius: 20px;
             font-weight: 700;
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="close-btn" onclick="resetApp()">✕</div>
+    <div class="close-btn" id="resetBtn">✕</div>
 
-    <!-- EKRAN 1: İLK SUAL -->
+    <!-- EKRAN 1 -->
     <div id="screen1" class="screen active">
         <div>
             <div class="robot-section">
                 <div class="robot-container" id="robot1">
-                    <!-- Mavi H&H Tişortlu Robot SVG -->
                     <svg class="robot-svg" viewBox="0 0 100 110">
-                        <!-- Head / Baş -->
                         <g class="robot-head">
                             <rect x="25" y="15" width="50" height="35" rx="10" fill="#d1d5db" stroke="#374151" stroke-width="2.5"/>
                             <rect x="32" y="22" width="36" height="20" rx="5" fill="#111827"/>
-                            <!-- Eyes -->
                             <circle cx="42" cy="32" r="4" fill="#60a5fa"/>
                             <circle cx="58" cy="32" r="4" fill="#60a5fa"/>
-                            <!-- Antenna -->
                             <line x1="50" y1="15" x2="50" y2="5" stroke="#374151" stroke-width="2.5"/>
                             <circle cx="50" cy="4" r="3" fill="#ef4444"/>
                         </g>
-
-                        <!-- Body / Gövdə (Mavi Tişortlu) -->
                         <rect x="20" y="52" width="60" height="40" rx="8" fill="#1cb0f6" stroke="#0284c7" stroke-width="2.5"/>
-                        <!-- H&H Text on Shirt -->
                         <text x="50" y="77" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Arial">H&H</text>
-
-                        <!-- Arms & Notepad -->
                         <g class="arm-pen">
-                            <!-- Left arm holding pad -->
                             <path d="M 20 60 L 10 75 L 25 80" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
-                            <!-- Notepad -->
                             <rect x="5" y="70" width="22" height="26" rx="3" fill="#fff" stroke="#374151" stroke-width="1.5"/>
                             <line x1="9" y1="76" x2="21" y2="76" stroke="#9ca3af" stroke-width="1.5"/>
                             <line x1="9" y1="82" x2="21" y2="82" stroke="#9ca3af" stroke-width="1.5"/>
-                            <!-- Right arm with pen -->
                             <path d="M 80 60 L 90 72 L 75 80" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
                             <line x1="75" y1="80" x2="22" y2="82" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
                         </g>
                     </svg>
                 </div>
-                <div class="speech-bubble" id="bubble1">
-                    7C Brawl Stars turnirinə qatılmaq istəyirsən?
+                
+                <div class="speech-bubble-wrapper">
+                    <div class="speech-bubble" id="bubble1">
+                        7C Brawl Stars turnirinə qatılmaq istəyirsən?
+                        <div class="dots-btn" onclick="toggleMenu(event, 'menu1')">⋮</div>
+                        <div class="report-menu" id="menu1">
+                            <div class="report-menu-item" onclick="openReportModal()">🚩 Bildir / Şikayət et</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="options-list">
-                <button class="option-btn" onclick="selectOption1(this, 'yes')">
-                    <span>Bəli</span>
-                </button>
-                <button class="option-btn" onclick="selectOption1(this, 'think')">
-                    <span>Hələ fikirləşmirəm</span>
-                </button>
+                <button class="option-btn" data-val="yes">Bəli</button>
+                <button class="option-btn" data-val="think">Hələ fikirləşmirəm</button>
             </div>
         </div>
 
         <div class="footer-action">
-            <button class="submit-btn" id="nextBtn1" disabled onclick="handleStep1()">DEVAM ET</button>
+            <button class="submit-btn" id="nextBtn1" disabled>DEVAM ET</button>
         </div>
     </div>
 
-    <!-- EKRAN 2: İSTİFADƏÇİ SEÇİMİ -->
+    <!-- EKRAN 2 -->
     <div id="screen2" class="screen">
         <div>
             <div class="robot-section">
                 <div class="robot-container" id="robot2">
-                    <!-- Eyni Robot SVG -->
                     <svg class="robot-svg" viewBox="0 0 100 110">
                         <g class="robot-head">
                             <rect x="25" y="15" width="50" height="35" rx="10" fill="#d1d5db" stroke="#374151" stroke-width="2.5"/>
@@ -446,29 +564,35 @@
                         </g>
                     </svg>
                 </div>
-                <div class="speech-bubble">
-                    Sən aşağıdakılardan hansısan?
+                <div class="speech-bubble-wrapper">
+                    <div class="speech-bubble">
+                        Sən aşağıdakılardan hansısan?
+                        <div class="dots-btn" onclick="toggleMenu(event, 'menu2')">⋮</div>
+                        <div class="report-menu" id="menu2">
+                            <div class="report-menu-item" onclick="openReportModal()">🚩 Bildir / Şikayət et</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="options-list">
-                <button class="option-btn" onclick="selectUser(this, 'Hüseyn.Ə')">Hüseyn.Ə</button>
-                <button class="option-btn" onclick="selectUser(this, 'Eldar')">Eldar</button>
-                <button class="option-btn" onclick="selectUser(this, 'Hüseyn.B')">Hüseyn.B</button>
-                <button class="option-btn" onclick="selectUser(this, 'Kənan.V')">Kənan.V</button>
-                <button class="option-btn" onclick="selectUser(this, 'Kənan.A')">Kənan.A</button>
-                <button class="option-btn" onclick="selectUser(this, 'Kənan.M')">Kənan.M</button>
-                <button class="option-btn" onclick="selectUser(this, 'Mələk.B')">Mələk.B</button>
-                <button class="option-btn" onclick="selectUser(this, 'Həsən.B')">Həsən.B</button>
+            <div class="options-list" id="userList">
+                <button class="option-btn" data-user="Hüseyn.Ə">Hüseyn.Ə</button>
+                <button class="option-btn" data-user="Eldar">Eldar</button>
+                <button class="option-btn" data-user="Hüseyn.B">Hüseyn.B</button>
+                <button class="option-btn" data-user="Kənan.V">Kənan.V</button>
+                <button class="option-btn" data-user="Kənan.A">Kənan.A</button>
+                <button class="option-btn" data-user="Kənan.M">Kənan.M</button>
+                <button class="option-btn" data-user="Mələk.B">Mələk.B</button>
+                <button class="option-btn" data-user="Həsən.B">Həsən.B</button>
             </div>
         </div>
 
         <div class="footer-action">
-            <button class="submit-btn" id="nextBtn2" disabled onclick="startLoading()">TƏSDİQLƏ</button>
+            <button class="submit-btn" id="nextBtn2" disabled>TƏSDİQLƏ</button>
         </div>
     </div>
 
-    <!-- EKRAN 3: YÜKLƏNMƏ (LOADING) -->
+    <!-- EKRAN 3: ORTADA YÜKLƏNMƏ -->
     <div id="screen3" class="screen">
         <div class="loading-screen">
             <div class="hh-logo">H&H</div>
@@ -479,92 +603,15 @@
         </div>
     </div>
 
-    <!-- EKRAN 4: LOBİ -->
+    <!-- EKRAN 4: LOBİ NÖVBƏSİ VƏ BRAWL STARS OYNA -->
     <div id="screen4" class="screen">
         <div class="lobby-screen">
             <div class="player-badge" id="playerBadge">Oyunçu: -</div>
-            <h2 style="font-size: 22px; font-weight: 800; color: #111827;">H&H Turniket Lobi</h2>
+            <h2 style="font-size: 20px; font-weight: 800; color: #111827;">H&H Turniket Lobi</h2>
 
             <div class="lobby-card">
-                <div class="lobby-title">
-                    <span>⚠️</span> Məlumat
-                </div>
+                <div class="lobby-title">⚠️ Məlumat</div>
                 <div class="lobby-desc">
                     Hələ layihə yaxud Turnir planlaşdırılmayıb! Sonra yenidən yoxlayın. Əgər hansısa layihə olsa QR kod ilə otağa daxil olub turniketə qatılacaqsınız və sinifin ən yaxşı oyunçusu seçiləcəksiniz.
                 </div>
-            </div>
-
-            <div class="qr-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                    <path d="M14 14h3v3h-3z"></path>
-                    <path d="M18 18h3v3h-3z"></path>
-                    <path d="M14 18h3v3h-3z"></path>
-                </div style="margin-top: 6px;">QR Kod Gözlənilir</div>
-            </div>
-        </div>
-
-        <div class="footer-action">
-            <button class="submit-btn" onclick="resetApp()">BAŞA QAYIT</button>
-        </div>
-    </div>
-</div>
-
-<script>
-    let selectedStep1 = null;
-    let selectedUser = null;
-
-    function triggerRobotAnimation(robotId) {
-        const robot = document.getElementById(robotId);
-        robot.classList.add('writing-animation');
-        setTimeout(() => {
-            robot.classList.remove('writing-animation');
-        }, 1200);
-    }
-
-    function selectOption1(element, val) {
-        selectedStep1 = val;
-        document.querySelectorAll('#screen1 .option-btn').forEach(btn => btn.classList.remove('selected'));
-        element.classList.add('selected');
-        document.getElementById('nextBtn1').removeAttribute('disabled');
-        
-        // Robotun qeyd etmə animasiyasını işə salırıq
-        triggerRobotAnimation('robot1');
-    }
-
-    function handleStep1() {
-        if (selectedStep1 === 'think') {
-            document.getElementById('bubble1').innerText = "Oldu! Hələlik fikirləş 1 oktyabrdan - 10 Marta qədər gələ bilərsən hələlik!";
-            document.querySelectorAll('#screen1 .option-btn').forEach(btn => btn.style.display = 'none');
-            document.getElementById('nextBtn1').style.display = 'none';
-        } else if (selectedStep1 === 'yes') {
-            showScreen('screen2');
-        }
-    }
-
-    function selectUser(element, userName) {
-        selectedUser = userName;
-        document.querySelectorAll('#screen2 .option-btn').forEach(btn => btn.classList.remove('selected'));
-        element.classList.add('selected');
-        document.getElementById('nextBtn2').removeAttribute('disabled');
-
-        // Robotun qeyd etmə animasiyasını işə salırıq
-        triggerRobotAnimation('robot2');
-    }
-
-    function startLoading() {
-        showScreen('screen3');
-        const progressBar = document.getElementById('progressBar');
-        let width = 0;
-        
-        // 4 saniyəlik yüklənmə taymeri (40ms * 100 = 4000ms = 4 saniyə)
-        const interval = setInterval(() => {
-            if (width >= 100) {
-                clearInterval(interval);
-                document.getElementById('playerBadge').innerText = "Oyunçu: " + selectedUser;
-                showScreen('screen4');
-            } else {
-                width++;
-               
+            </div
